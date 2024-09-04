@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 1.0.0
 description: GMX
 repository: https://github.com/gmx-io/gmx-subgraph
 schema:
@@ -14,7 +14,7 @@ dataSources:
       startBlock: 107737756
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Order
@@ -49,7 +49,7 @@ dataSources:
       startBlock: 107737756 # 9391374
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - UserGlpGmMigrationStat
@@ -69,7 +69,7 @@ dataSources:
       startBlock: 107737756 # 9391374
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - UserGlpGmMigrationStat
@@ -89,7 +89,7 @@ dataSources:
       startBlock: 107737756 # 9391374
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - BatchSend
@@ -109,7 +109,7 @@ dataSources:
       startBlock: 150447937
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - BatchSend
@@ -129,7 +129,7 @@ templates:
       abi: MarketToken
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Transaction
