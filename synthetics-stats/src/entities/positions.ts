@@ -3,10 +3,10 @@ import {
   PositionIncrease,
   Transaction,
 } from "../../generated/schema";
-import { EventData } from "../utils/eventData";
+import { EventData,Event1Data } from "../utils/eventData";
 
 export function savePositionIncrease(
-  eventData: EventData,
+  eventData: Event1Data,
   transaction: Transaction
 ): PositionIncrease {
   let orderKey = eventData.getBytes32Item("orderKey")!.toHexString();
@@ -62,7 +62,7 @@ export function savePositionIncrease(
 }
 
 export function savePositionDecrease(
-  eventData: EventData,
+  eventData: Event1Data,
   transaction: Transaction
 ): PositionDecrease {
   let orderKey = eventData.getBytes32Item("orderKey")!.toHexString();

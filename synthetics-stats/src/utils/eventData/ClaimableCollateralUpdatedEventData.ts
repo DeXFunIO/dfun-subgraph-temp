@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { EventData } from "../eventData";
+import { Event1Data } from "../eventData";
 
 /*
 EventLog1: ClaimableCollateralUpdated
@@ -14,7 +14,7 @@ nextPoolValue: 45965608008 (uint)
 */
 
 export class ClaimableCollateralUpdatedEventData {
-  constructor(private eventData: EventData) {}
+  constructor(private eventData: Event1Data) {}
 
   get market(): string {
     return this.eventData.getAddressItemString("market")!;

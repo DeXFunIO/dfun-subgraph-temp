@@ -114,7 +114,7 @@ export function saveSwapExecutedTradeAction(eventId: string, order: Order, trans
   tradeAction.orderKey = order.id;
   tradeAction.orderType = order.orderType;
   
-  if (swapInfo != null) {
+  if (!(swapInfo === null)) {
     tradeAction.executionAmountOut = swapInfo.amountOut;
   } else {
     tradeAction.executionAmountOut = BigInt.fromI32(0);
@@ -138,7 +138,7 @@ export function savePositionIncreaseExecutedTradeAction(
   tradeAction.indexTokenPriceMin = tokenPrice.minPrice;
   tradeAction.indexTokenPriceMax = tokenPrice.maxPrice;
 
-  if (positionIncrease == null) {
+  if (positionIncrease === null) {
     throw new Error("PositionIncrease not found " + order.id);
   }
 
@@ -171,7 +171,7 @@ export function savePositionDecreaseExecutedTradeAction(eventId: string, order: 
   tradeAction.indexTokenPriceMin = tokenPrice.minPrice;
   tradeAction.indexTokenPriceMax = tokenPrice.maxPrice;
 
-  if (positionDecrease == null) {
+  if (positionDecrease === null) {
     throw new Error("PositionDecrease not found " + order.id);
   }
 
@@ -181,11 +181,11 @@ export function savePositionDecreaseExecutedTradeAction(eventId: string, order: 
     positionFeesInfo = PositionFeesInfo.load(order.id + ":" + "PositionFeesInfo");
   }
 
-  if (positionFeesInfo == null) {
+  if (positionFeesInfo === null) {
     positionFeesInfo = PositionFeesInfo.load(order.id + ":" + "PositionFeesCollected");
   }
 
-  if (positionFeesInfo == null) {
+  if (positionFeesInfo === null) {
     log.warning("PositionFeesInfo not found {}", [order.id]);
     throw new Error("PositionFeesInfo not found " + order.id);
   }

@@ -9,17 +9,17 @@ export function getOrCreateTransaction(event: ethereum.Event): Transaction {
   let id = event.transaction.hash.toHexString();
   let entity = Transaction.load(id);
 
-  if (entity == null) {
+  if (entity === null) {
     entity = new Transaction(id);
     entity.hash = event.transaction.hash.toHexString();
     entity.timestamp = event.block.timestamp.toI32();
     entity.blockNumber = event.block.number.toI32();
     entity.transactionIndex = event.transaction.index.toI32();
     entity.from = event.transaction.from.toHexString();
-    if (event.transaction.to == null) {
+    if (event.transaction.to === null) {
       entity.to = "";
     } else {
-      entity.to = event.transaction.to.toHexString();
+      entity.to = event.transaction.to!.toHexString();
     }
     entity.save();
   }

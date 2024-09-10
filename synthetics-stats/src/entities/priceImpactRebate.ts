@@ -1,12 +1,12 @@
 import { BigInt, log } from "@graphprotocol/graph-ts";
 import { ClaimableCollateral, ClaimableCollateralGroup } from "../../generated/schema";
-import { EventData } from "../utils/eventData";
+import { EventData ,Event1Data,Event2Data} from "../utils/eventData";
 import { ClaimableCollateralUpdatedEventData } from "../utils/eventData/ClaimableCollateralUpdatedEventData";
 import { CollateralClaimedEventData } from "../utils/eventData/CollateralClaimedEventData";
 import { SetClaimableCollateralFactorForTimeEventData } from "../utils/eventData/SetClaimableCollateralFactorForTime";
 import { SetClaimableCollateralFactorForAccountEventData } from "../utils/eventData/SetClaimableCollateralFactorForAccount";
 
-export function handleClaimableCollateralUpdated(eventData: EventData): void {
+export function handleClaimableCollateralUpdated(eventData: Event1Data): void {
   let data = new ClaimableCollateralUpdatedEventData(eventData);
   let entity = getOrCreateClaimableCollateral(data.account, data.market, data.token, data.timeKey);
   let groupEntity = getOrCreateClaimableCollateralGroup(data.market, data.token, data.timeKey);
@@ -26,7 +26,7 @@ export function handleClaimableCollateralUpdated(eventData: EventData): void {
   groupEntity.save();
 }
 
-export function handleSetClaimableCollateralFactorForTime(eventData: EventData): void {
+export function handleSetClaimableCollateralFactorForTime(eventData: Event2Data): void {
   let data = new SetClaimableCollateralFactorForTimeEventData(eventData);
 
   let entity = getOrCreateClaimableCollateralGroup(data.market, data.token, data.timeKey);
@@ -38,14 +38,14 @@ export function handleSetClaimableCollateralFactorForTime(eventData: EventData):
   for (let i = 0; i < claimables.length; i++) {
     let id = claimables[i];
 
-    if (!id) {
+    if (id===null) {
       log.warning("ClaimableCollateral id is undefined {}", [i.toString()]);
       throw new Error("ClaimableCollateral id is undefined");
     }
 
     let claimable = ClaimableCollateral.load(id.toString());
 
-    if (claimable == null) {
+    if (claimable === null) {
       log.warning("ClaimableCollateral not found {}", [id]);
       throw new Error("ClaimableCollateral not found");
     }
@@ -57,7 +57,7 @@ export function handleSetClaimableCollateralFactorForTime(eventData: EventData):
   entity.save();
 }
 
-export function handleSetClaimableCollateralFactorForAccount(eventData: EventData): void {
+export function handleSetClaimableCollateralFactorForAccount(eventData: Event2Data): void {
   let data = new SetClaimableCollateralFactorForAccountEventData(eventData);
 
   let entity = getOrCreateClaimableCollateral(data.account, data.market, data.token, data.timeKey);
@@ -67,7 +67,7 @@ export function handleSetClaimableCollateralFactorForAccount(eventData: EventDat
   entity.save();
 }
 
-export function handleCollateralClaimed(eventData: EventData): void {
+export function handleCollateralClaimed(eventData: Event1Data): void {
   let data = new CollateralClaimedEventData(eventData);
 
   let entity = getOrCreateClaimableCollateral(data.account, data.market, data.token, data.timeKey);
@@ -85,7 +85,7 @@ function getOrCreateClaimableCollateral(
 
   let entity = ClaimableCollateral.load(id);
 
-  if (entity == null) {
+  if (entity === null) {
     entity = new ClaimableCollateral(id);
     entity.account = account;
     entity.marketAddress = market;
@@ -102,7 +102,7 @@ function getOrCreateClaimableCollateralGroup(market: string, token: string, time
   let id = market + ":" + token + ":" + timeKey.toString();
   let entity = ClaimableCollateralGroup.load(id);
 
-  if (entity == null) {
+  if (entity === null) {
     entity = new ClaimableCollateralGroup(id);
     entity.marketAddress = market;
     entity.tokenAddress = token;

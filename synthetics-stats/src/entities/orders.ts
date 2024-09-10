@@ -1,5 +1,5 @@
 import { Order, Transaction } from "../../generated/schema";
-import { EventData } from "../utils/eventData";
+import { EventData,Event1Data,Event2Data } from "../utils/eventData";
 import { BigInt } from "@graphprotocol/graph-ts";
 
 export let orderTypes = new Map<string, BigInt>();
@@ -14,7 +14,7 @@ orderTypes.set("StopLossDecrease", BigInt.fromI32(6));
 orderTypes.set("Liquidation", BigInt.fromI32(7));
 
 export function saveOrder(
-  eventData: EventData,
+  eventData: Event2Data,
   transaction: Transaction
 ): Order {
   let key = eventData.getBytes32Item("key")!.toHexString();
@@ -60,14 +60,14 @@ export function saveOrder(
 }
 
 export function saveOrderCancelledState(
-  eventData: EventData,
+  eventData: Event2Data,
   transaction: Transaction
 ): Order | null {
   let key = eventData.getBytes32Item("key")!.toHexString();
 
   let order = Order.load(key);
 
-  if (order == null) {
+  if (order === null) {
     return null;
   }
 
@@ -79,18 +79,18 @@ export function saveOrderCancelledState(
 
   order.save();
 
-  return order as Order;
+  return order;
 }
 
 export function saveOrderExecutedState(
-  eventData: EventData,
+  eventData: Event2Data,
   transaction: Transaction
 ): Order | null {
   let key = eventData.getBytes32Item("key")!.toHexString();
 
   let order = Order.load(key);
 
-  if (order == null) {
+  if (order === null) {
     return null;
   }
 
@@ -99,15 +99,15 @@ export function saveOrderExecutedState(
 
   order.save();
 
-  return order as Order;
+  return order;
 }
 
-export function saveOrderFrozenState(eventData: EventData): Order | null {
+export function saveOrderFrozenState(eventData: Event2Data): Order | null {
   let key = eventData.getBytes32Item("key")!.toHexString();
 
   let order = Order.load(key);
 
-  if (order == null) {
+  if (order === null) {
     return null;
   }
 
@@ -117,15 +117,15 @@ export function saveOrderFrozenState(eventData: EventData): Order | null {
 
   order.save();
 
-  return order as Order;
+  return order;
 }
 
-export function saveOrderUpdate(eventData: EventData): Order | null {
+export function saveOrderUpdate(eventData: Event2Data): Order | null {
   let key = eventData.getBytes32Item("key")!.toHexString();
 
   let order = Order.load(key);
 
-  if (order == null) {
+  if (order === null) {
     return null;
   }
 
@@ -136,17 +136,17 @@ export function saveOrderUpdate(eventData: EventData): Order | null {
 
   order.save();
 
-  return order as Order;
+  return order;
 }
 
 export function saveOrderSizeDeltaAutoUpdate(
-  eventData: EventData
+  eventData: Event1Data
 ): Order | null {
   let key = eventData.getBytes32Item("key")!.toHexString();
 
   let order = Order.load(key);
 
-  if (order == null) {
+  if (order === null) {
     return null;
   }
 
@@ -154,17 +154,17 @@ export function saveOrderSizeDeltaAutoUpdate(
 
   order.save();
 
-  return order as Order;
+  return order;
 }
 
 export function saveOrderCollateralAutoUpdate(
-  eventData: EventData
+  eventData: Event1Data
 ): Order | null {
   let key = eventData.getBytes32Item("key")!.toHexString();
 
   let order = Order.load(key);
 
-  if (order == null) {
+  if (order === null) {
     return null;
   }
 
@@ -174,5 +174,5 @@ export function saveOrderCollateralAutoUpdate(
 
   order.save();
 
-  return order as Order;
+  return order;
 }

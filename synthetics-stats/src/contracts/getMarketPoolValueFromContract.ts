@@ -37,13 +37,13 @@ export function getMarketPoolValueFromContract(
   marketArg[2] = chainEthereum.Value.fromAddress(Address.fromString(marketInfo.longToken));
   marketArg[3] = chainEthereum.Value.fromAddress(Address.fromString(marketInfo.shortToken));
 
-  let indexTokenPriceArg = createPriceForContractCall<Reader__getMarketTokenPriceInputIndexTokenPriceStruct>(
+  let indexTokenPriceArg = createIndexTokenPriceForContractCall(
     marketInfo.indexToken
   );
-  let longTokenPriceArg = createPriceForContractCall<Reader__getMarketTokenPriceInputLongTokenPriceStruct>(
+  let longTokenPriceArg = createLongTokenPriceForContractCall(
     marketInfo.longToken
   );
-  let shortTokenPriceArg = createPriceForContractCall<Reader__getMarketTokenPriceInputShortTokenPriceStruct>(
+  let shortTokenPriceArg = createShortTokenPriceForContractCall(
     marketInfo.shortToken
   );
 
@@ -80,7 +80,7 @@ export function getMarketPoolValueFromContract(
   return res.value1.poolValue;
 }
 
-function createPriceForContractCall<T>(tokenAddress: string): T {
+function createIndexTokenPriceForContractCall(tokenAddress: string): Reader__getMarketTokenPriceInputIndexTokenPriceStruct {
   let minPrice: BigInt = ZERO;
   let maxPrice: BigInt = ZERO;
   let tokenPrice = TokenPrice.load(tokenAddress);
@@ -93,9 +93,50 @@ function createPriceForContractCall<T>(tokenAddress: string): T {
     throw new Error("tokenAddress is not zero address");
   }
 
-  let price = new Reader__getMarketTokenPriceInputIndexTokenPriceStruct(2) as T;
+  let price = new Reader__getMarketTokenPriceInputIndexTokenPriceStruct(2);
   price[0] = chainEthereum.Value.fromUnsignedBigInt(minPrice);
   price[1] = chainEthereum.Value.fromUnsignedBigInt(maxPrice);
 
-  return price as T;
+  return price;
 }
+
+function createLongTokenPriceForContractCall(tokenAddress: string): Reader__getMarketTokenPriceInputLongTokenPriceStruct {
+  let minPrice: BigInt = ZERO;
+  let maxPrice: BigInt = ZERO;
+  let tokenPrice = TokenPrice.load(tokenAddress);
+
+  if (tokenPrice) {
+    minPrice = tokenPrice.minPrice;
+    maxPrice = tokenPrice.maxPrice;
+  } else if (tokenAddress != ZERO_ADDRESS) {
+    log.error("TokenPrice not found {}", [tokenAddress]);
+    throw new Error("tokenAddress is not zero address");
+  }
+
+  let price = new Reader__getMarketTokenPriceInputLongTokenPriceStruct(2);
+  price[0] = chainEthereum.Value.fromUnsignedBigInt(minPrice);
+  price[1] = chainEthereum.Value.fromUnsignedBigInt(maxPrice);
+
+  return price;
+}
+
+function createShortTokenPriceForContractCall(tokenAddress: string): Reader__getMarketTokenPriceInputShortTokenPriceStruct {
+  let minPrice: BigInt = ZERO;
+  let maxPrice: BigInt = ZERO;
+  let tokenPrice = TokenPrice.load(tokenAddress);
+
+  if (tokenPrice) {
+    minPrice = tokenPrice.minPrice;
+    maxPrice = tokenPrice.maxPrice;
+  } else if (tokenAddress != ZERO_ADDRESS) {
+    log.error("TokenPrice not found {}", [tokenAddress]);
+    throw new Error("tokenAddress is not zero address");
+  }
+
+  let price = new Reader__getMarketTokenPriceInputShortTokenPriceStruct(2);
+  price[0] = chainEthereum.Value.fromUnsignedBigInt(minPrice);
+  price[1] = chainEthereum.Value.fromUnsignedBigInt(maxPrice);
+
+  return price;
+}
+

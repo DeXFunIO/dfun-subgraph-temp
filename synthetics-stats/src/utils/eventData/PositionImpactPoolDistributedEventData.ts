@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { EventData } from "../eventData";
+import { Event1Data } from "../eventData";
 
 /*
 market: 0x339eF6aAcF8F4B2AD15BdcECBEED1842Ec4dBcBf (address)
@@ -8,7 +8,7 @@ nextPositionImpactPoolAmount: 661876257 (uint)
 */
 
 export class PositionImpactPoolDistributedEventData {
-  constructor(private eventData: EventData) {}
+  constructor(private eventData: Event1Data) {}
 
   get market(): string {
     return this.eventData.getAddressItemString("market")!;

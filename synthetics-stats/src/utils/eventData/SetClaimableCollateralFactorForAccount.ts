@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { EventData } from "../eventData";
+import { Event2Data } from "../eventData";
 
 /*
 EventLog2: ClaimableCollateralUpdated
@@ -15,7 +15,7 @@ uintItems.setItem(1, "factor", factor);
 */
 
 export class SetClaimableCollateralFactorForAccountEventData {
-  constructor(private eventData: EventData) {}
+  constructor(private eventData: Event2Data) {}
 
   get market(): string {
     return this.eventData.getAddressItemString("market")!;

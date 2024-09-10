@@ -1,11 +1,11 @@
 import { log, BigInt } from "@graphprotocol/graph-ts";
 import { MarketInfo } from "../../generated/schema";
 import { marketConfigs } from "../config/markets";
-import { EventData } from "../utils/eventData";
+import { EventData,Event1Data } from "../utils/eventData";
 
 let ZERO = BigInt.fromI32(0);
 
-export function saveMarketInfo(eventData: EventData): MarketInfo {
+export function saveMarketInfo(eventData: Event1Data): MarketInfo {
   let id = eventData.getAddressItemString("marketToken")!;
   let marketInfo = new MarketInfo(id);
   marketInfo.marketToken = id;
@@ -15,13 +15,13 @@ export function saveMarketInfo(eventData: EventData): MarketInfo {
   marketInfo.marketTokensSupply = BigInt.fromI32(0);
   marketInfo.save();
 
-  return marketInfo as MarketInfo;
+  return marketInfo;
 }
 
 export function getMarketInfo(marketAddress: string): MarketInfo {
   let entity = MarketInfo.load(marketAddress);
 
-  if (!entity) {
+  if (entity===null) {
     let marketConfig = marketConfigs.get(marketAddress);
 
     if (marketConfig) {
@@ -48,9 +48,9 @@ export function saveMarketInfoTokensSupply(marketAddress: string, value: BigInt)
 
 
 export function saveMarketInfoMarketTokensSupplyFromPoolUpdated(marketAddress: string, value: BigInt | null): void {
-  if (value != null) {
+  if (!(value=== null)) {
     let marketInfo = getMarketInfo(marketAddress)
-    marketInfo.marketTokensSupplyFromPoolUpdated = value as BigInt;
+    marketInfo.marketTokensSupplyFromPoolUpdated = value;
     marketInfo.save();
   }
 }

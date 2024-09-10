@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { EventData } from "../eventData";
+import { EventData,Event1Data } from "../eventData";
 
 /*
 eventData.addressItems.initItems(4);
@@ -21,7 +21,7 @@ eventEmitter.emitEventLog1(
 */
 
 export class CollateralClaimedEventData {
-  constructor(private eventData: EventData) {}
+  constructor(private eventData: Event1Data) {}
 
   get market(): string {
     return this.eventData.getAddressItemString("market")!;
