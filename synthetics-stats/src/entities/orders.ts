@@ -35,7 +35,7 @@ export function saveOrder(
   )!;
   order.triggerPrice = eventData.getUintItem("triggerPrice")!;
   order.acceptablePrice = eventData.getUintItem("acceptablePrice")!;
-  order.callbackGasLimit = eventData.getUintItem("callbakGasLimit")!;
+  order.callbackGasLimit = eventData.getUintItem("callbackGasLimit")!;
   order.minOutputAmount = eventData.getUintItem("minOutputAmount")!;
   order.executionFee = eventData.getUintItem("executionFee")!;
   order.updatedAtBlock = eventData.getUintItem("updatedAtBlock")!;

@@ -4,7 +4,6 @@ import { EventLog, EventLog1, EventLog2, EventLogEventDataStruct,EventLog1EventD
 import { Transfer } from "../generated/templates/MarketTokenTemplate/MarketToken";
 import { MarketTokenTemplate } from "../generated/templates";
 import { ClaimRef, DepositRef, MarketInfo, Order } from "../generated/schema";
-import { BatchSend } from "../generated/BatchSender/BatchSender";
 
 import {
   saveClaimableFundingFeeInfo as handleClaimableFundingUpdated,
@@ -353,11 +352,25 @@ function handleEventLog2(event: EventLog2, network: string): void {
     let transaction = getOrCreateTransaction(event);
     let order = saveOrderCancelledState(eventData, transaction);
     if (order !== null) {
+      let reason:string;
+      if(order.cancelledReason == null) {
+        reason = "";
+      }else{
+        reason = order.cancelledReason!;
+      }
+      let reasonBytes:Bytes;
+      if(!order.cancelledReasonBytes) {
+        reasonBytes = new Bytes(0);
+      }else{
+        reasonBytes = order.cancelledReasonBytes!;
+      }
+
+
       saveOrderCancelledTradeAction(
         eventId,
         order as Order,
-        order.cancelledReason as string,
-        order.cancelledReasonBytes as Bytes,
+        reason,
+        reasonBytes,
         transaction
       );
     }
@@ -382,12 +395,24 @@ function handleEventLog2(event: EventLog2, network: string): void {
     if (order == null) {
       return;
     }
+    let reason:string;
+    if(order.frozenReason == null) {
+      reason = "";
+    }else{
+      reason = order.frozenReason!;
+    }
+    let reasonBytes:Bytes;
+    if(!order.frozenReasonBytes) {
+      reasonBytes = new Bytes(0);
+    }else{
+      reasonBytes = order.frozenReasonBytes!;
+    }
 
     saveOrderFrozenTradeAction(
       eventId,
       order as Order,
-      order.frozenReason as string,
-      order.frozenReasonBytes as Bytes,
+      reason,
+      reasonBytes,
       transaction
     );
     return;

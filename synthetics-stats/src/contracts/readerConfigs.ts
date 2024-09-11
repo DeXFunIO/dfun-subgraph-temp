@@ -46,6 +46,15 @@ readerContractByNetwork.set(
   )
 );
 
+readerContractByNetwork.set(
+  "NeoX",
+  new ReaderContractConfig(
+    "0x5a3a6d191A10bf90Ee1099188EbE8BD4D39C6425",
+    "0xf8042afd80C1ff4b089B845FB6b56Ab64fDa6BcD",
+    270238 + 1
+  )
+);
+
 export function getReaderContractConfigByNetwork(network: string): ReaderContractConfig {
   let contract = readerContractByNetwork.get(network);
   if (!contract) {
