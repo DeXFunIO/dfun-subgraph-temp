@@ -241,7 +241,7 @@ function handleEventLog1(event: EventLog1, network: string): void {
     let marketToken = eventData.getAddressItemString("market")!;
     let sizeDeltaUsd = eventData.getUintItem("sizeDeltaUsd")!;
     let account = eventData.getAddressItemString("account")!;
-
+    log.debug("transaction: {},PositionDecreaseEvent", [transaction.id]);
     savePositionDecrease(eventData, transaction);
     saveVolumeInfo("margin", transaction.timestamp, sizeDeltaUsd);
     savePositionVolumeInfo(transaction.timestamp, collateralToken, marketToken, sizeDeltaUsd);
@@ -322,7 +322,7 @@ function handleEventLog2(event: EventLog2, network: string): void {
     return;
   }
 
-    if (eventName == "OrderExecuted") {
+  if (eventName == "OrderExecuted") {
     let transaction = getOrCreateTransaction(event);
     let order = saveOrderExecutedState(eventData, transaction);
 

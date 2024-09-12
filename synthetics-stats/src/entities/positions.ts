@@ -1,3 +1,4 @@
+import { log } from "@graphprotocol/graph-ts";
 import {
   PositionDecrease,
   PositionIncrease,
@@ -37,19 +38,19 @@ export function savePositionIncrease(
   entity.sizeDeltaInTokens = eventData.getUintItem("sizeDeltaInTokens")!;
   entity.collateralDeltaAmount = eventData.getIntItem("collateralDeltaAmount")!;
   entity.borrowingFactor = eventData.getUintItem("borrowingFactor")!;
-  entity.priceImpactDiffUsd = eventData.getUintItem("values.priceImpactDiffUsd")!;
+  //entity.priceImpactDiffUsd = eventData.getUintItem("values.priceImpactDiffUsd")!;
 
   entity.executionPrice = eventData.getUintItem("executionPrice")!;
-
+/*
   entity.longTokenFundingAmountPerSize = eventData.getIntItem(
     "longTokenFundingAmountPerSize"
   )!;
   entity.shortTokenFundingAmountPerSize = eventData.getIntItem(
     "shortTokenFundingAmountPerSize"
-  )!;
+  )!;*/
   entity.priceImpactAmount = eventData.getIntItem("priceImpactAmount")!;
   entity.priceImpactUsd = eventData.getIntItem("priceImpactUsd")!;
-  entity.basePnlUsd = eventData.getIntItem("basePnlUsd")!;
+  //entity.basePnlUsd = eventData.getIntItem("basePnlUsd")!;
 
   entity.orderType = eventData.getUintItem("orderType")!;
   entity.isLong = eventData.getBoolItem("isLong");
@@ -96,25 +97,25 @@ export function savePositionDecrease(
     "collateralDeltaAmount"
   )!;
   entity.borrowingFactor = eventData.getUintItem("borrowingFactor")!;
-  entity.priceImpactDiffUsd = eventData.getUintItem("priceImpactDiffUsd")!;
+  entity.priceImpactDiffUsd = eventData.getUintItem("values.priceImpactDiffUsd")!;
   entity.priceImpactUsd = eventData.getIntItem("priceImpactUsd")!;
 
   entity.executionPrice = eventData.getUintItem("executionPrice")!;
-
+  /*
   entity.longTokenFundingAmountPerSize = eventData.getIntItem(
     "longTokenFundingAmountPerSize"
   )!;
   entity.shortTokenFundingAmountPerSize = eventData.getIntItem(
     "shortTokenFundingAmountPerSize"
-  )!;
-  entity.priceImpactAmount = eventData.getIntItem("priceImpactAmount")!;
+  )!;*/
+  entity.priceImpactAmount = eventData.getIntItem("priceImpactAmount");
   entity.basePnlUsd = eventData.getIntItem("basePnlUsd")!;
 
   entity.orderType = eventData.getUintItem("orderType")!;
   entity.isLong = eventData.getBoolItem("isLong");
 
   entity.transaction = transaction.id;
-
+  log.debug("savePositionDecrease's orderkey: {}", [orderKey]);
   entity.save();
 
   return entity;

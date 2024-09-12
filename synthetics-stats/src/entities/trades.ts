@@ -204,7 +204,8 @@ export function savePositionDecreaseExecutedTradeAction(eventId: string, order: 
   tradeAction.collateralTokenPriceMax = positionFeesInfo.collateralTokenPriceMax;
 
   tradeAction.priceImpactDiffUsd = positionDecrease.priceImpactDiffUsd;
-  tradeAction.priceImpactAmount = positionDecrease.priceImpactAmount;
+  //tradeAction.priceImpactAmount = positionDecrease.priceImpactAmount;
+  tradeAction.priceImpactAmount = null;
   tradeAction.priceImpactUsd = positionDecrease.priceImpactUsd;
 
   tradeAction.positionFeeAmount = positionFeesInfo.positionFeeAmount;
