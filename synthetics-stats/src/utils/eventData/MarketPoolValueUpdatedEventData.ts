@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { EventData } from "../eventData";
+import { Event1Data } from "../eventData";
 
 /*
 EventLog1: MarketPoolValueUpdated
@@ -20,7 +20,7 @@ EventLog1: MarketPoolValueUpdated
     tradeKey: 0xabbce870896391ae4548dd2ed4fe3505b0c1a4d7f343bde492ec89717c8d30e5 (bytes32)
 */
 export class MarketPoolValueUpdatedEventData {
-  constructor(private eventData: EventData) {}
+  constructor(private eventData: Event1Data) {}
 
   get market(): string {
     return this.eventData.getAddressItemString("market")!;

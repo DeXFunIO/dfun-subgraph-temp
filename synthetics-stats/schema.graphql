@@ -87,14 +87,11 @@ type PositionIncrease @entity(immutable: true) {
   sizeDeltaInTokens: BigInt!
   collateralDeltaAmount: BigInt!
   executionPrice: BigInt!
-  priceImpactDiffUsd: BigInt!
   orderType: BigInt!
   borrowingFactor: BigInt!
-  longTokenFundingAmountPerSize: BigInt!
-  shortTokenFundingAmountPerSize: BigInt!
   priceImpactAmount: BigInt!
   priceImpactUsd: BigInt!
-  basePnlUsd: BigInt!
+  
   isLong: Boolean!
 
   transaction: Transaction
@@ -119,11 +116,9 @@ type PositionDecrease @entity(immutable: true) {
   executionPrice: BigInt!
   priceImpactDiffUsd: BigInt!
   priceImpactUsd: BigInt!
+  priceImpactAmount: BigInt
   orderType: BigInt!
   borrowingFactor: BigInt!
-  longTokenFundingAmountPerSize: BigInt!
-  shortTokenFundingAmountPerSize: BigInt!
-  priceImpactAmount: BigInt!
   basePnlUsd: BigInt!
   isLong: Boolean!
 

@@ -1,0 +1,60 @@
+specVersion: 1.0.0
+description: GMX
+repository: https://github.com/gmx-io/gmx-subgraph
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - kind: ethereum/contract
+    name: EventEmitter
+    network: neox-testnet
+    source:
+      address: "0xafB7DAFF1DF6346FE9bA314b0B01F550e25f0b24"
+      abi: EventEmitter
+      startBlock: 270238
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Order
+        - PositionIncrease
+        - PositionDecrease
+        - PositionFeesInfo
+        - SwapInfo
+        - TradeAction
+        - Transaction
+      abis:
+        - name: EventEmitter
+          file: ./abis/EventEmitter.json
+        - name: Reader
+          file: ./abis/Reader.json
+        - name: MarketToken
+          file: ./abis/MarketToken.json
+      eventHandlers:
+        - event: EventLog(address,string,indexed string,(((string,address)[],(string,address[])[]),((string,uint256)[],(string,uint256[])[]),((string,int256)[],(string,int256[])[]),((string,bool)[],(string,bool[])[]),((string,bytes32)[],(string,bytes32[])[]),((string,bytes)[],(string,bytes[])[]),((string,string)[],(string,string[])[])))
+          handler: handleEventLog
+        - event: EventLog1(address,string,indexed string,indexed bytes32,(((string,address)[],(string,address[])[]),((string,uint256)[],(string,uint256[])[]),((string,int256)[],(string,int256[])[]),((string,bool)[],(string,bool[])[]),((string,bytes32)[],(string,bytes32[])[]),((string,bytes)[],(string,bytes[])[]),((string,string)[],(string,string[])[])))
+          handler: handleEventLog1NeoX
+        - event: EventLog2(address,string,indexed string,indexed bytes32,indexed bytes32,(((string,address)[],(string,address[])[]),((string,uint256)[],(string,uint256[])[]),((string,int256)[],(string,int256[])[]),((string,bool)[],(string,bool[])[]),((string,bytes32)[],(string,bytes32[])[]),((string,bytes)[],(string,bytes[])[]),((string,string)[],(string,string[])[])))
+          handler: handleEventLog2NeoX
+      file: ./src/mapping.ts
+templates:
+  - kind: ethereum/contract
+    name: MarketTokenTemplate
+    network: neox-testnet
+    source:
+      abi: MarketToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transaction
+      abis:
+        - name: MarketToken
+          file: ./abis/MarketToken.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleMarketTokenTransfer
+      file: ./src/mapping.ts

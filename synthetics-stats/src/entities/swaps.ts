@@ -1,8 +1,8 @@
 import { SwapInfo, Transaction } from "../../generated/schema";
-import { EventData } from "../utils/eventData";
+import { EventData,Event1Data } from "../utils/eventData";
 
 export function handleSwapInfo(
-  eventData: EventData,
+  eventData: Event1Data,
   transaction: Transaction
 ): SwapInfo {
   let orderKey = eventData.getBytes32Item("orderKey")!.toHexString();

@@ -10,7 +10,7 @@ import {
 } from "../../generated/schema";
 import { getMarketPoolValueFromContract } from "../contracts/getMarketPoolValueFromContract";
 import { getMarketTokensSupplyFromContract } from "../contracts/getMarketTokensSupplyFromContract";
-import { EventData } from "../utils/eventData";
+import { EventData,Event1Data } from "../utils/eventData";
 import { PositionImpactPoolDistributedEventData } from "../utils/eventData/PositionImpactPoolDistributedEventData";
 import { timestampToPeriodStart } from "../utils/time";
 import { getTokenPrice } from "./prices";
@@ -56,7 +56,7 @@ function updateCollectedFeesFractions(
   feesEntity.cumulativeFeeUsdPerGmToken = totalFeesEntity.feeUsdPerGmToken;
 }
 
-export function saveSwapFeesInfo(eventData: EventData, eventId: string, transaction: Transaction): SwapFeesInfo {
+export function saveSwapFeesInfo(eventData: Event1Data, eventId: string, transaction: Transaction): SwapFeesInfo {
   let swapFeesInfo = new SwapFeesInfo(eventId);
 
   swapFeesInfo.marketAddress = eventData.getAddressItemString("market")!;
@@ -64,7 +64,7 @@ export function saveSwapFeesInfo(eventData: EventData, eventId: string, transact
 
   let swapFeeType = eventData.getBytes32Item("swapFeeType");
 
-  if (swapFeeType != null) {
+  if (!(swapFeeType === null)) {
     swapFeesInfo.swapFeeType = swapFeeType.toHexString();
   } else {
     let action = eventData.getStringItem("action");
@@ -90,7 +90,7 @@ export function saveSwapFeesInfo(eventData: EventData, eventId: string, transact
 }
 
 export function savePositionFeesInfo(
-  eventData: EventData,
+  eventData: Event1Data,
   eventName: string,
   transaction: Transaction
 ): PositionFeesInfo {
@@ -289,14 +289,14 @@ export function saveCollectedMarketFees(
 }
 
 export function handlePositionImpactPoolDistributed(
-  eventData: EventData,
+  eventData: Event1Data,
   transaction: Transaction,
   network: string
 ): void {
   let data = new PositionImpactPoolDistributedEventData(eventData);
   let marketInfo = MarketInfo.load(data.market);
 
-  if (!marketInfo) {
+  if (marketInfo===null) {
     log.warning("Market not found: {}", [data.market]);
     throw new Error("Market not found");
   }

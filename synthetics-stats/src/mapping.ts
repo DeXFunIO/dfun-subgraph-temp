@@ -1,12 +1,9 @@
 import { Bytes, log } from "@graphprotocol/graph-ts";
 
-import { EventLog, EventLog1, EventLog2, EventLogEventDataStruct } from "../generated/EventEmitter/EventEmitter";
+import { EventLog, EventLog1, EventLog2, EventLogEventDataStruct,EventLog1EventDataStruct,EventLog2EventDataStruct } from "../generated/EventEmitter/EventEmitter";
 import { Transfer } from "../generated/templates/MarketTokenTemplate/MarketToken";
 import { MarketTokenTemplate } from "../generated/templates";
-import { ClaimRef, DepositRef, MarketInfo, Order, SellUSDG } from "../generated/schema";
-import { BatchSend } from "../generated/BatchSender/BatchSender";
-import { SellUSDG as SellUSDGEvent } from "../generated/Vault/Vault";
-import { RemoveLiquidity } from "../generated/GlpManager/GlpManager";
+import { ClaimRef, DepositRef, MarketInfo, Order } from "../generated/schema";
 
 import {
   saveClaimableFundingFeeInfo as handleClaimableFundingUpdated,
@@ -55,12 +52,11 @@ import {
   saveSwapExecutedTradeAction
 } from "./entities/trades";
 import { savePositionVolumeInfo, saveSwapVolumeInfo, saveVolumeInfo } from "./entities/volume";
-import { EventData } from "./utils/eventData";
+import { EventData,Event1Data,Event2Data } from "./utils/eventData";
 import { saveUserStat } from "./entities/user";
 import {
   saveLiquidityProviderIncentivesStat,
   saveMarketIncentivesStat,
-  saveUserGlpGmMigrationStatGlpData,
   saveUserGlpGmMigrationStatGmData,
   saveUserMarketInfo
 } from "./entities/incentives/liquidityIncentives";
@@ -77,67 +73,7 @@ import {
 } from "./entities/priceImpactRebate";
 
 let ADDRESS_ZERO = "0x0000000000000000000000000000000000000000";
-let SELL_USDG_ID = "last";
 
-export function handleSellUSDG(event: SellUSDGEvent): void {
-  let sellUsdgEntity = new SellUSDG(SELL_USDG_ID);
-  sellUsdgEntity.txHash = event.transaction.hash.toHexString();
-  sellUsdgEntity.logIndex = event.logIndex.toI32();
-  sellUsdgEntity.feeBasisPoints = event.params.feeBasisPoints;
-  sellUsdgEntity.save();
-}
-
-export function handleRemoveLiquidity(event: RemoveLiquidity): void {
-  let sellUsdgEntity = SellUSDG.load(SELL_USDG_ID);
-
-  if (sellUsdgEntity == null) {
-    log.error("No SellUSDG entity tx: {}", [event.transaction.hash.toHexString()]);
-    throw new Error("No SellUSDG entity");
-  }
-
-  if (sellUsdgEntity.txHash != event.transaction.hash.toHexString()) {
-    log.error("SellUSDG entity tx hashes don't match: expected {} actual {}", [
-      event.transaction.hash.toHexString(),
-      sellUsdgEntity.txHash
-    ]);
-    throw new Error("SellUSDG entity tx hashes don't match");
-  }
-
-  let expectedLogIndex = event.logIndex.toI32() - 1;
-  if (sellUsdgEntity.logIndex != expectedLogIndex) {
-    log.error("SellUSDG entity incorrect log index: expected {} got {}", [
-      expectedLogIndex.toString(),
-      (sellUsdgEntity.logIndex as number).toString()
-    ]);
-    throw new Error("SellUSDG entity tx hashes don't match");
-  }
-
-  saveUserGlpGmMigrationStatGlpData(
-    event.params.account.toHexString(),
-    event.block.timestamp.toI32(),
-    event.params.usdgAmount,
-    sellUsdgEntity.feeBasisPoints
-  );
-}
-
-export function handleBatchSend(event: BatchSend): void {
-  let typeId = event.params.typeId;
-  let token = event.params.token.toHexString();
-  let receivers = event.params.accounts;
-  let amounts = event.params.amounts;
-  for (let i = 0; i < event.params.accounts.length; i++) {
-    let receiver = receivers[i].toHexString();
-    saveDistribution(
-      receiver,
-      token,
-      amounts[i],
-      typeId.toI32(),
-      event.transaction.hash.toHexString(),
-      event.block.number.toI32(),
-      event.block.timestamp.toI32()
-    );
-  }
-}
 
 export function handleMarketTokenTransfer(event: Transfer): void {
   let marketAddress = event.address.toHexString();
@@ -150,8 +86,8 @@ export function handleMarketTokenTransfer(event: Transfer): void {
     // LiquidityProviderIncentivesStat *should* be updated before UserMarketInfo
     saveLiquidityProviderIncentivesStat(from, marketAddress, "1w", value.neg(), event.block.timestamp.toI32());
     saveUserMarketInfo(from, marketAddress, value.neg());
-    let transaction = getOrCreateTransaction(event);
-    saveUserGmTokensBalanceChange(from, marketAddress, value.neg(), transaction, event.logIndex);
+    //let transaction = getOrCreateTransaction(event);
+    //saveUserGmTokensBalanceChange(from, marketAddress, value.neg(), transaction, event.logIndex);
   }
 
   // `to` user receives GM tokens
@@ -159,8 +95,8 @@ export function handleMarketTokenTransfer(event: Transfer): void {
     // LiquidityProviderIncentivesStat *should* be updated before UserMarketInfo
     saveLiquidityProviderIncentivesStat(to, marketAddress, "1w", value, event.block.timestamp.toI32());
     saveUserMarketInfo(to, marketAddress, value);
-    let transaction = getOrCreateTransaction(event);
-    saveUserGmTokensBalanceChange(to, marketAddress, value, transaction, event.logIndex);
+   // let transaction = getOrCreateTransaction(event);
+    //saveUserGmTokensBalanceChange(to, marketAddress, value, transaction, event.logIndex);
   }
 
   if (from == ADDRESS_ZERO) {
@@ -176,102 +112,16 @@ export function handleEventLog(event: EventLog): void {
   let eventName = event.params.eventName;
   let eventData = new EventData(event.params.eventData as EventLogEventDataStruct);
 
-  if (eventName == "DepositExecuted") {
-    handleDepositExecuted(event as EventLog2, eventData);
-    return;
-  }
 }
 
 function handleEventLog1(event: EventLog1, network: string): void {
   let eventName = event.params.eventName;
-  let eventData = new EventData(event.params.eventData as EventLogEventDataStruct);
+  let eventData = new Event1Data(event.params.eventData);
   let eventId = getIdFromEvent(event);
-
+  
   if (eventName == "MarketCreated") {
     saveMarketInfo(eventData);
     MarketTokenTemplate.create(eventData.getAddressItem("marketToken")!);
-    return;
-  }
-
-  if (eventName == "DepositCreated") {
-    handleDepositCreated(event as EventLog2, eventData);
-    return;
-  }
-
-  if (eventName == "WithdrawalCreated") {
-    let transaction = getOrCreateTransaction(event);
-    let account = eventData.getAddressItemString("account")!;
-    saveUserStat("withdrawal", account, transaction.timestamp);
-    return;
-  }
-
-  if (eventName == "OrderExecuted") {
-    let transaction = getOrCreateTransaction(event);
-    let order = saveOrderExecutedState(eventData, transaction);
-
-    if (order == null) {
-      return;
-    }
-
-    if (order.orderType == orderTypes.get("MarketSwap") || order.orderType == orderTypes.get("LimitSwap")) {
-      saveSwapExecutedTradeAction(eventId, order as Order, transaction);
-    } else if (
-      order.orderType == orderTypes.get("MarketIncrease") ||
-      order.orderType == orderTypes.get("LimitIncrease")
-    ) {
-      savePositionIncreaseExecutedTradeAction(eventId, order as Order, transaction);
-    } else if (
-      order.orderType == orderTypes.get("MarketDecrease") ||
-      order.orderType == orderTypes.get("LimitDecrease") ||
-      order.orderType == orderTypes.get("StopLossDecrease") ||
-      order.orderType == orderTypes.get("Liquidation")
-    ) {
-      savePositionDecreaseExecutedTradeAction(eventId, order as Order, transaction);
-    }
-    return;
-  }
-
-  if (eventName == "OrderCancelled") {
-    let transaction = getOrCreateTransaction(event);
-    let order = saveOrderCancelledState(eventData, transaction);
-    if (order !== null) {
-      saveOrderCancelledTradeAction(
-        eventId,
-        order as Order,
-        order.cancelledReason as string,
-        order.cancelledReasonBytes as Bytes,
-        transaction
-      );
-    }
-
-    return;
-  }
-
-  if (eventName == "OrderUpdated") {
-    let transaction = getOrCreateTransaction(event);
-    let order = saveOrderUpdate(eventData);
-    if (order !== null) {
-      saveOrderUpdatedTradeAction(eventId, order as Order, transaction);
-    }
-
-    return;
-  }
-
-  if (eventName == "OrderFrozen") {
-    let transaction = getOrCreateTransaction(event);
-    let order = saveOrderFrozenState(eventData);
-
-    if (order == null) {
-      return;
-    }
-
-    saveOrderFrozenTradeAction(
-      eventId,
-      order as Order,
-      order.frozenReason as string,
-      order.frozenReasonBytes as Bytes,
-      transaction
-    );
     return;
   }
 
@@ -391,7 +241,7 @@ function handleEventLog1(event: EventLog1, network: string): void {
     let marketToken = eventData.getAddressItemString("market")!;
     let sizeDeltaUsd = eventData.getUintItem("sizeDeltaUsd")!;
     let account = eventData.getAddressItemString("account")!;
-
+    log.debug("transaction: {},PositionDecreaseEvent", [transaction.id]);
     savePositionDecrease(eventData, transaction);
     saveVolumeInfo("margin", transaction.timestamp, sizeDeltaUsd);
     savePositionVolumeInfo(transaction.timestamp, collateralToken, marketToken, sizeDeltaUsd);
@@ -447,7 +297,7 @@ function handleEventLog1(event: EventLog1, network: string): void {
 
 function handleEventLog2(event: EventLog2, network: string): void {
   let eventName = event.params.eventName;
-  let eventData = new EventData(event.params.eventData as EventLogEventDataStruct);
+  let eventData = new Event2Data(event.params.eventData);
   let eventId = getIdFromEvent(event);
 
   if (eventName == "OrderCreated") {
@@ -458,6 +308,113 @@ function handleEventLog2(event: EventLog2, network: string): void {
     } else {
       saveOrderCreatedTradeAction(eventId, order, transaction);
     }
+    return;
+  }
+  if (eventName == "DepositCreated") {
+    handleDepositCreated(event, eventData);
+    return;
+  }
+
+    if (eventName == "WithdrawalCreated") {
+    let transaction = getOrCreateTransaction(event);
+    let account = eventData.getAddressItemString("account")!;
+    saveUserStat("withdrawal", account, transaction.timestamp);
+    return;
+  }
+
+  if (eventName == "OrderExecuted") {
+    let transaction = getOrCreateTransaction(event);
+    let order = saveOrderExecutedState(eventData, transaction);
+
+    if (order == null) {
+      return;
+    }
+
+    if (order.orderType == orderTypes.get("MarketSwap") || order.orderType == orderTypes.get("LimitSwap")) {
+      saveSwapExecutedTradeAction(eventId, order as Order, transaction);
+    } else if (
+      order.orderType == orderTypes.get("MarketIncrease") ||
+      order.orderType == orderTypes.get("LimitIncrease")
+    ) {
+      savePositionIncreaseExecutedTradeAction(eventId, order as Order, transaction);
+    } else if (
+      order.orderType == orderTypes.get("MarketDecrease") ||
+      order.orderType == orderTypes.get("LimitDecrease") ||
+      order.orderType == orderTypes.get("StopLossDecrease") ||
+      order.orderType == orderTypes.get("Liquidation")
+    ) {
+      savePositionDecreaseExecutedTradeAction(eventId, order as Order, transaction);
+    }
+    return;
+  }
+
+  if (eventName == "OrderCancelled") {
+    let transaction = getOrCreateTransaction(event);
+    let order = saveOrderCancelledState(eventData, transaction);
+    if (order !== null) {
+      let reason:string;
+      if(order.cancelledReason == null) {
+        reason = "";
+      }else{
+        reason = order.cancelledReason!;
+      }
+      let reasonBytes:Bytes;
+      if(!order.cancelledReasonBytes) {
+        reasonBytes = new Bytes(0);
+      }else{
+        reasonBytes = order.cancelledReasonBytes!;
+      }
+
+
+      saveOrderCancelledTradeAction(
+        eventId,
+        order as Order,
+        reason,
+        reasonBytes,
+        transaction
+      );
+    }
+
+    return;
+  }
+
+  if (eventName == "OrderUpdated") {
+    let transaction = getOrCreateTransaction(event);
+    let order = saveOrderUpdate(eventData);
+    if (order !== null) {
+      saveOrderUpdatedTradeAction(eventId, order as Order, transaction);
+    }
+
+    return;
+  }
+
+  if (eventName == "OrderFrozen") {
+    let transaction = getOrCreateTransaction(event);
+    let order = saveOrderFrozenState(eventData);
+
+    if (order == null) {
+      return;
+    }
+    let reason:string;
+    if(order.frozenReason == null) {
+      reason = "";
+    }else{
+      reason = order.frozenReason!;
+    }
+    let reasonBytes:Bytes;
+    if(!order.frozenReasonBytes) {
+      reasonBytes = new Bytes(0);
+    }else{
+      reasonBytes = order.frozenReasonBytes!;
+    }
+
+    saveOrderFrozenTradeAction(
+      eventId,
+      order as Order,
+      reason,
+      reasonBytes,
+      transaction
+    );
     return;
   }
 
@@ -492,17 +449,17 @@ function handleEventLog2(event: EventLog2, network: string): void {
     let transaction = getOrCreateTransaction(event);
     let order = saveOrderExecutedState(eventData, transaction);
 
-    if (order == null) {
+    if (order === null) {
       return;
     }
 
     if (order.orderType == orderTypes.get("MarketSwap") || order.orderType == orderTypes.get("LimitSwap")) {
-      saveSwapExecutedTradeAction(eventId, order as Order, transaction);
+      saveSwapExecutedTradeAction(eventId, order, transaction);
     } else if (
       order.orderType == orderTypes.get("MarketIncrease") ||
       order.orderType == orderTypes.get("LimitIncrease")
     ) {
-      savePositionIncreaseExecutedTradeAction(eventId, order as Order, transaction);
+      savePositionIncreaseExecutedTradeAction(eventId, order, transaction);
     } else if (
       order.orderType == orderTypes.get("MarketDecrease") ||
       order.orderType == orderTypes.get("LimitDecrease") ||
@@ -512,7 +469,7 @@ function handleEventLog2(event: EventLog2, network: string): void {
       if (ClaimRef.load(order.id)) {
         saveClaimActionOnOrderExecuted(transaction, eventData);
       } else {
-        savePositionDecreaseExecutedTradeAction(eventId, order as Order, transaction);
+        savePositionDecreaseExecutedTradeAction(eventId, order, transaction);
       }
     }
     return;
@@ -521,20 +478,19 @@ function handleEventLog2(event: EventLog2, network: string): void {
   if (eventName == "OrderCancelled") {
     let transaction = getOrCreateTransaction(event);
     let order = saveOrderCancelledState(eventData, transaction);
-    if (order !== null) {
+    if (!(order === null)) {
       if (ClaimRef.load(order.id)) {
         saveClaimActionOnOrderCancelled(transaction, eventData);
       } else {
         saveOrderCancelledTradeAction(
           eventId,
           order!,
-          order.cancelledReason as string,
-          order.cancelledReasonBytes as Bytes,
+          order.cancelledReason!,
+          order.cancelledReasonBytes!,
           transaction
         );
       }
     }
-
     return;
   }
 
@@ -552,7 +508,7 @@ function handleEventLog2(event: EventLog2, network: string): void {
     let transaction = getOrCreateTransaction(event);
     let order = saveOrderFrozenState(eventData);
 
-    if (order == null) {
+    if (order === null) {
       return;
     }
 
@@ -567,11 +523,12 @@ function handleEventLog2(event: EventLog2, network: string): void {
   }
 }
 
+
 function isDepositOrWithdrawalAction(action: string): boolean {
   return action == "deposit" || action == "withdrawal";
 }
 
-function handleDepositCreated(event: EventLog2, eventData: EventData): void {
+function handleDepositCreated(event: EventLog2, eventData: Event2Data): void {
   let transaction = getOrCreateTransaction(event);
   let account = eventData.getAddressItemString("account")!;
   saveUserStat("deposit", account, transaction.timestamp);
@@ -584,7 +541,8 @@ function handleDepositCreated(event: EventLog2, eventData: EventData): void {
   depositRef.save();
 }
 
-function handleDepositExecuted(event: EventLog2, eventData: EventData): void {
+
+function handleDepositExecuted(event: EventLog2, eventData: Event2Data): void {
   let key = eventData.getBytes32Item("key")!.toHexString();
   let depositRef = DepositRef.load(key)!;
   let marketInfo = MarketInfo.load(depositRef.marketAddress)!;
@@ -596,37 +554,14 @@ function handleDepositExecuted(event: EventLog2, eventData: EventData): void {
   let shortTokenPrice = getTokenPrice(marketInfo.shortToken)!;
 
   let depositUsd = longTokenAmount.times(longTokenPrice).plus(shortTokenAmount.times(shortTokenPrice));
-  saveUserGlpGmMigrationStatGmData(depositRef.account, event.block.timestamp.toI32(), depositUsd);
+  //saveUserGlpGmMigrationStatGmData(depositRef.account, event.block.timestamp.toI32(), depositUsd);
 }
 
-export function handleEventLog1Arbitrum(event: EventLog1): void {
-  handleEventLog1(event, "arbitrum");
+export function handleEventLog1NeoX(event: EventLog1): void {
+  handleEventLog1(event, "NeoX");
 }
 
-export function handleEventLog1Goerli(event: EventLog1): void {
-  handleEventLog1(event, "goerli");
-}
 
-export function handleEventLog1Avalanche(event: EventLog1): void {
-  handleEventLog1(event, "avalanche");
-}
-
-export function handleEventLog1Fuji(event: EventLog1): void {
-  handleEventLog1(event, "fuji");
-}
-
-export function handleEventLog2Arbitrum(event: EventLog2): void {
-  handleEventLog2(event, "arbitrum");
-}
-
-export function handleEventLog2Goerli(event: EventLog2): void {
-  handleEventLog2(event, "goerli");
-}
-
-export function handleEventLog2Avalanche(event: EventLog2): void {
-  handleEventLog2(event, "avalanche");
-}
-
-export function handleEventLog2Fuji(event: EventLog2): void {
-  handleEventLog2(event, "fuji");
+export function handleEventLog2NeoX(event: EventLog2): void {
+  handleEventLog2(event, "NeoX");
 }

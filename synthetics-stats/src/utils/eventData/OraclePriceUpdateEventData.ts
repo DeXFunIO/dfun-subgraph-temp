@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { EventData } from "../eventData";
+import { Event1Data } from "../eventData";
 
 /*
 token: 0xCcF73F4Dcbbb573296BFA656b754Fe94BB957d62 (address)
@@ -10,7 +10,7 @@ priceSourceType: 2 (uint)
 */
 
 export class OraclePriceUpdateEventData {
-  constructor(private eventData: EventData) {}
+  constructor(private eventData: Event1Data) {}
 
   get token(): string {
     return this.eventData.getAddressItemString("token")!;

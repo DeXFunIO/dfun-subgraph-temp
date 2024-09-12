@@ -1,12 +1,13 @@
+import { log } from "@graphprotocol/graph-ts";
 import {
   PositionDecrease,
   PositionIncrease,
   Transaction,
 } from "../../generated/schema";
-import { EventData } from "../utils/eventData";
+import { EventData,Event1Data } from "../utils/eventData";
 
 export function savePositionIncrease(
-  eventData: EventData,
+  eventData: Event1Data,
   transaction: Transaction
 ): PositionIncrease {
   let orderKey = eventData.getBytes32Item("orderKey")!.toHexString();
@@ -37,19 +38,19 @@ export function savePositionIncrease(
   entity.sizeDeltaInTokens = eventData.getUintItem("sizeDeltaInTokens")!;
   entity.collateralDeltaAmount = eventData.getIntItem("collateralDeltaAmount")!;
   entity.borrowingFactor = eventData.getUintItem("borrowingFactor")!;
-  entity.priceImpactDiffUsd = eventData.getUintItem("priceImpactDiffUsd")!;
+  //entity.priceImpactDiffUsd = eventData.getUintItem("values.priceImpactDiffUsd")!;
 
   entity.executionPrice = eventData.getUintItem("executionPrice")!;
-
+/*
   entity.longTokenFundingAmountPerSize = eventData.getIntItem(
     "longTokenFundingAmountPerSize"
   )!;
   entity.shortTokenFundingAmountPerSize = eventData.getIntItem(
     "shortTokenFundingAmountPerSize"
-  )!;
+  )!;*/
   entity.priceImpactAmount = eventData.getIntItem("priceImpactAmount")!;
   entity.priceImpactUsd = eventData.getIntItem("priceImpactUsd")!;
-  entity.basePnlUsd = eventData.getIntItem("basePnlUsd")!;
+  //entity.basePnlUsd = eventData.getIntItem("basePnlUsd")!;
 
   entity.orderType = eventData.getUintItem("orderType")!;
   entity.isLong = eventData.getBoolItem("isLong");
@@ -62,7 +63,7 @@ export function savePositionIncrease(
 }
 
 export function savePositionDecrease(
-  eventData: EventData,
+  eventData: Event1Data,
   transaction: Transaction
 ): PositionDecrease {
   let orderKey = eventData.getBytes32Item("orderKey")!.toHexString();
@@ -96,25 +97,25 @@ export function savePositionDecrease(
     "collateralDeltaAmount"
   )!;
   entity.borrowingFactor = eventData.getUintItem("borrowingFactor")!;
-  entity.priceImpactDiffUsd = eventData.getUintItem("priceImpactDiffUsd")!;
+  entity.priceImpactDiffUsd = eventData.getUintItem("values.priceImpactDiffUsd")!;
   entity.priceImpactUsd = eventData.getIntItem("priceImpactUsd")!;
 
   entity.executionPrice = eventData.getUintItem("executionPrice")!;
-
+  /*
   entity.longTokenFundingAmountPerSize = eventData.getIntItem(
     "longTokenFundingAmountPerSize"
   )!;
   entity.shortTokenFundingAmountPerSize = eventData.getIntItem(
     "shortTokenFundingAmountPerSize"
-  )!;
-  entity.priceImpactAmount = eventData.getIntItem("priceImpactAmount")!;
+  )!;*/
+  entity.priceImpactAmount = eventData.getIntItem("priceImpactAmount");
   entity.basePnlUsd = eventData.getIntItem("basePnlUsd")!;
 
   entity.orderType = eventData.getUintItem("orderType")!;
   entity.isLong = eventData.getBoolItem("isLong");
 
   entity.transaction = transaction.id;
-
+  log.debug("savePositionDecrease's orderkey: {}", [orderKey]);
   entity.save();
 
   return entity;

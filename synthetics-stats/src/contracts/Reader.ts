@@ -7,20 +7,26 @@ import {
   Entity,
   Bytes,
   Address,
-  BigInt
+  BigInt,
 } from "@graphprotocol/graph-ts";
 
 export class Reader__getAccountOrdersResultValue0Struct extends ethereum.Tuple {
   get addresses(): Reader__getAccountOrdersResultValue0AddressesStruct {
-    return this[0].toTuple() as Reader__getAccountOrdersResultValue0AddressesStruct;
+    return changetype<Reader__getAccountOrdersResultValue0AddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getAccountOrdersResultValue0NumbersStruct {
-    return this[1].toTuple() as Reader__getAccountOrdersResultValue0NumbersStruct;
+    return changetype<Reader__getAccountOrdersResultValue0NumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getAccountOrdersResultValue0FlagsStruct {
-    return this[2].toTuple() as Reader__getAccountOrdersResultValue0FlagsStruct;
+    return changetype<Reader__getAccountOrdersResultValue0FlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -112,15 +118,21 @@ export class Reader__getAccountOrdersResultValue0FlagsStruct extends ethereum.Tu
 
 export class Reader__getAccountPositionInfoListResultValue0Struct extends ethereum.Tuple {
   get position(): Reader__getAccountPositionInfoListResultValue0PositionStruct {
-    return this[0].toTuple() as Reader__getAccountPositionInfoListResultValue0PositionStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0PositionStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get fees(): Reader__getAccountPositionInfoListResultValue0FeesStruct {
-    return this[1].toTuple() as Reader__getAccountPositionInfoListResultValue0FeesStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0FeesStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get executionPriceResult(): Reader__getAccountPositionInfoListResultValue0ExecutionPriceResultStruct {
-    return this[2].toTuple() as Reader__getAccountPositionInfoListResultValue0ExecutionPriceResultStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0ExecutionPriceResultStruct>(
+      this[2].toTuple(),
+    );
   }
 
   get basePnlUsd(): BigInt {
@@ -138,15 +150,21 @@ export class Reader__getAccountPositionInfoListResultValue0Struct extends ethere
 
 export class Reader__getAccountPositionInfoListResultValue0PositionStruct extends ethereum.Tuple {
   get addresses(): Reader__getAccountPositionInfoListResultValue0PositionAddressesStruct {
-    return this[0].toTuple() as Reader__getAccountPositionInfoListResultValue0PositionAddressesStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0PositionAddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getAccountPositionInfoListResultValue0PositionNumbersStruct {
-    return this[1].toTuple() as Reader__getAccountPositionInfoListResultValue0PositionNumbersStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0PositionNumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getAccountPositionInfoListResultValue0PositionFlagsStruct {
-    return this[2].toTuple() as Reader__getAccountPositionInfoListResultValue0PositionFlagsStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0PositionFlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -210,23 +228,33 @@ export class Reader__getAccountPositionInfoListResultValue0PositionFlagsStruct e
 
 export class Reader__getAccountPositionInfoListResultValue0FeesStruct extends ethereum.Tuple {
   get referral(): Reader__getAccountPositionInfoListResultValue0FeesReferralStruct {
-    return this[0].toTuple() as Reader__getAccountPositionInfoListResultValue0FeesReferralStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0FeesReferralStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get funding(): Reader__getAccountPositionInfoListResultValue0FeesFundingStruct {
-    return this[1].toTuple() as Reader__getAccountPositionInfoListResultValue0FeesFundingStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0FeesFundingStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get borrowing(): Reader__getAccountPositionInfoListResultValue0FeesBorrowingStruct {
-    return this[2].toTuple() as Reader__getAccountPositionInfoListResultValue0FeesBorrowingStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0FeesBorrowingStruct>(
+      this[2].toTuple(),
+    );
   }
 
   get ui(): Reader__getAccountPositionInfoListResultValue0FeesUiStruct {
-    return this[3].toTuple() as Reader__getAccountPositionInfoListResultValue0FeesUiStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0FeesUiStruct>(
+      this[3].toTuple(),
+    );
   }
 
   get collateralTokenPrice(): Reader__getAccountPositionInfoListResultValue0FeesCollateralTokenPriceStruct {
-    return this[4].toTuple() as Reader__getAccountPositionInfoListResultValue0FeesCollateralTokenPriceStruct;
+    return changetype<Reader__getAccountPositionInfoListResultValue0FeesCollateralTokenPriceStruct>(
+      this[4].toTuple(),
+    );
   }
 
   get positionFeeFactor(): BigInt {
@@ -384,15 +412,21 @@ export class Reader__getAccountPositionInfoListResultValue0ExecutionPriceResultS
 
 export class Reader__getAccountPositionInfoListInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getAccountPositionInfoListInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getAccountPositionInfoListInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getAccountPositionInfoListInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getAccountPositionInfoListInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getAccountPositionInfoListInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getAccountPositionInfoListInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getAccountPositionInfoListInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getAccountPositionInfoListInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getAccountPositionInfoListInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -428,15 +462,21 @@ export class Reader__getAccountPositionInfoListInputPricesShortTokenPriceStruct 
 
 export class Reader__getAccountPositionsResultValue0Struct extends ethereum.Tuple {
   get addresses(): Reader__getAccountPositionsResultValue0AddressesStruct {
-    return this[0].toTuple() as Reader__getAccountPositionsResultValue0AddressesStruct;
+    return changetype<Reader__getAccountPositionsResultValue0AddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getAccountPositionsResultValue0NumbersStruct {
-    return this[1].toTuple() as Reader__getAccountPositionsResultValue0NumbersStruct;
+    return changetype<Reader__getAccountPositionsResultValue0NumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getAccountPositionsResultValue0FlagsStruct {
-    return this[2].toTuple() as Reader__getAccountPositionsResultValue0FlagsStruct;
+    return changetype<Reader__getAccountPositionsResultValue0FlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -519,19 +559,41 @@ export class Reader__getAdlStateResult {
     map.set("value3", ethereum.Value.fromUnsignedBigInt(this.value3));
     return map;
   }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): boolean {
+    return this.value1;
+  }
+
+  getValue2(): BigInt {
+    return this.value2;
+  }
+
+  getValue3(): BigInt {
+    return this.value3;
+  }
 }
 
 export class Reader__getAdlStateInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getAdlStateInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getAdlStateInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getAdlStateInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getAdlStateInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getAdlStateInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getAdlStateInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getAdlStateInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getAdlStateInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getAdlStateInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -567,15 +629,21 @@ export class Reader__getAdlStateInputPricesShortTokenPriceStruct extends ethereu
 
 export class Reader__getDepositResultValue0Struct extends ethereum.Tuple {
   get addresses(): Reader__getDepositResultValue0AddressesStruct {
-    return this[0].toTuple() as Reader__getDepositResultValue0AddressesStruct;
+    return changetype<Reader__getDepositResultValue0AddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getDepositResultValue0NumbersStruct {
-    return this[1].toTuple() as Reader__getDepositResultValue0NumbersStruct;
+    return changetype<Reader__getDepositResultValue0NumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getDepositResultValue0FlagsStruct {
-    return this[2].toTuple() as Reader__getDepositResultValue0FlagsStruct;
+    return changetype<Reader__getDepositResultValue0FlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -669,15 +737,21 @@ export class Reader__getDepositAmountOutInputMarketStruct extends ethereum.Tuple
 
 export class Reader__getDepositAmountOutInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getDepositAmountOutInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getDepositAmountOutInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getDepositAmountOutInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getDepositAmountOutInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getDepositAmountOutInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getDepositAmountOutInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getDepositAmountOutInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getDepositAmountOutInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getDepositAmountOutInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -773,7 +847,9 @@ export class Reader__getMarketBySaltResultValue0Struct extends ethereum.Tuple {
 
 export class Reader__getMarketInfoResultValue0Struct extends ethereum.Tuple {
   get market(): Reader__getMarketInfoResultValue0MarketStruct {
-    return this[0].toTuple() as Reader__getMarketInfoResultValue0MarketStruct;
+    return changetype<Reader__getMarketInfoResultValue0MarketStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get borrowingFactorPerSecondForLongs(): BigInt {
@@ -785,15 +861,21 @@ export class Reader__getMarketInfoResultValue0Struct extends ethereum.Tuple {
   }
 
   get baseFunding(): Reader__getMarketInfoResultValue0BaseFundingStruct {
-    return this[3].toTuple() as Reader__getMarketInfoResultValue0BaseFundingStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingStruct>(
+      this[3].toTuple(),
+    );
   }
 
   get nextFunding(): Reader__getMarketInfoResultValue0NextFundingStruct {
-    return this[4].toTuple() as Reader__getMarketInfoResultValue0NextFundingStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingStruct>(
+      this[4].toTuple(),
+    );
   }
 
   get virtualInventory(): Reader__getMarketInfoResultValue0VirtualInventoryStruct {
-    return this[5].toTuple() as Reader__getMarketInfoResultValue0VirtualInventoryStruct;
+    return changetype<Reader__getMarketInfoResultValue0VirtualInventoryStruct>(
+      this[5].toTuple(),
+    );
   }
 
   get isDisabled(): boolean {
@@ -821,21 +903,29 @@ export class Reader__getMarketInfoResultValue0MarketStruct extends ethereum.Tupl
 
 export class Reader__getMarketInfoResultValue0BaseFundingStruct extends ethereum.Tuple {
   get fundingFeeAmountPerSize(): Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeStruct {
-    return this[0].toTuple() as Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get claimableFundingAmountPerSize(): Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeStruct {
-    return this[1].toTuple() as Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
 export class Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeLongStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeShortStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSizeShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -861,11 +951,15 @@ export class Reader__getMarketInfoResultValue0BaseFundingFundingFeeAmountPerSize
 
 export class Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeLongStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeShortStruct;
+    return changetype<Reader__getMarketInfoResultValue0BaseFundingClaimableFundingAmountPerSizeShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -903,21 +997,29 @@ export class Reader__getMarketInfoResultValue0NextFundingStruct extends ethereum
   }
 
   get fundingFeeAmountPerSizeDelta(): Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct {
-    return this[3].toTuple() as Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct>(
+      this[3].toTuple(),
+    );
   }
 
   get claimableFundingAmountPerSizeDelta(): Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct {
-    return this[4].toTuple() as Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct>(
+      this[4].toTuple(),
+    );
   }
 }
 
 export class Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaLongStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaShortStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSizeDeltaShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -943,11 +1045,15 @@ export class Reader__getMarketInfoResultValue0NextFundingFundingFeeAmountPerSize
 
 export class Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaLongStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaShortStruct;
+    return changetype<Reader__getMarketInfoResultValue0NextFundingClaimableFundingAmountPerSizeDeltaShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -987,15 +1093,21 @@ export class Reader__getMarketInfoResultValue0VirtualInventoryStruct extends eth
 
 export class Reader__getMarketInfoInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getMarketInfoInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getMarketInfoInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getMarketInfoInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getMarketInfoInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getMarketInfoInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getMarketInfoInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getMarketInfoInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getMarketInfoInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getMarketInfoInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -1031,7 +1143,9 @@ export class Reader__getMarketInfoInputPricesShortTokenPriceStruct extends ether
 
 export class Reader__getMarketInfoListResultValue0Struct extends ethereum.Tuple {
   get market(): Reader__getMarketInfoListResultValue0MarketStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListResultValue0MarketStruct;
+    return changetype<Reader__getMarketInfoListResultValue0MarketStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get borrowingFactorPerSecondForLongs(): BigInt {
@@ -1043,15 +1157,21 @@ export class Reader__getMarketInfoListResultValue0Struct extends ethereum.Tuple 
   }
 
   get baseFunding(): Reader__getMarketInfoListResultValue0BaseFundingStruct {
-    return this[3].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingStruct>(
+      this[3].toTuple(),
+    );
   }
 
   get nextFunding(): Reader__getMarketInfoListResultValue0NextFundingStruct {
-    return this[4].toTuple() as Reader__getMarketInfoListResultValue0NextFundingStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingStruct>(
+      this[4].toTuple(),
+    );
   }
 
   get virtualInventory(): Reader__getMarketInfoListResultValue0VirtualInventoryStruct {
-    return this[5].toTuple() as Reader__getMarketInfoListResultValue0VirtualInventoryStruct;
+    return changetype<Reader__getMarketInfoListResultValue0VirtualInventoryStruct>(
+      this[5].toTuple(),
+    );
   }
 
   get isDisabled(): boolean {
@@ -1079,21 +1199,29 @@ export class Reader__getMarketInfoListResultValue0MarketStruct extends ethereum.
 
 export class Reader__getMarketInfoListResultValue0BaseFundingStruct extends ethereum.Tuple {
   get fundingFeeAmountPerSize(): Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get claimableFundingAmountPerSize(): Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeStruct {
-    return this[1].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
 export class Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeLongStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeShortStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPerSizeShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -1119,11 +1247,15 @@ export class Reader__getMarketInfoListResultValue0BaseFundingFundingFeeAmountPer
 
 export class Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeLongStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeShortStruct;
+    return changetype<Reader__getMarketInfoListResultValue0BaseFundingClaimableFundingAmountPerSizeShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -1161,21 +1293,29 @@ export class Reader__getMarketInfoListResultValue0NextFundingStruct extends ethe
   }
 
   get fundingFeeAmountPerSizeDelta(): Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct {
-    return this[3].toTuple() as Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct>(
+      this[3].toTuple(),
+    );
   }
 
   get claimableFundingAmountPerSizeDelta(): Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct {
-    return this[4].toTuple() as Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct>(
+      this[4].toTuple(),
+    );
   }
 }
 
 export class Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaLongStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaShortStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPerSizeDeltaShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -1201,11 +1341,15 @@ export class Reader__getMarketInfoListResultValue0NextFundingFundingFeeAmountPer
 
 export class Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaStruct extends ethereum.Tuple {
   get long(): Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaLongStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaLongStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaLongStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get short(): Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaShortStruct {
-    return this[1].toTuple() as Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaShortStruct;
+    return changetype<Reader__getMarketInfoListResultValue0NextFundingClaimableFundingAmountPerSizeDeltaShortStruct>(
+      this[1].toTuple(),
+    );
   }
 }
 
@@ -1245,15 +1389,21 @@ export class Reader__getMarketInfoListResultValue0VirtualInventoryStruct extends
 
 export class Reader__getMarketInfoListInputMarketPricesListStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getMarketInfoListInputMarketPricesListIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getMarketInfoListInputMarketPricesListIndexTokenPriceStruct;
+    return changetype<Reader__getMarketInfoListInputMarketPricesListIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getMarketInfoListInputMarketPricesListLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getMarketInfoListInputMarketPricesListLongTokenPriceStruct;
+    return changetype<Reader__getMarketInfoListInputMarketPricesListLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getMarketInfoListInputMarketPricesListShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getMarketInfoListInputMarketPricesListShortTokenPriceStruct;
+    return changetype<Reader__getMarketInfoListInputMarketPricesListShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -1339,7 +1489,7 @@ export class Reader__getMarketTokenPriceResult {
 
   constructor(
     value0: BigInt,
-    value1: Reader__getMarketTokenPriceResultValue1Struct
+    value1: Reader__getMarketTokenPriceResultValue1Struct,
   ) {
     this.value0 = value0;
     this.value1 = value1;
@@ -1350,6 +1500,14 @@ export class Reader__getMarketTokenPriceResult {
     map.set("value0", ethereum.Value.fromSignedBigInt(this.value0));
     map.set("value1", ethereum.Value.fromTuple(this.value1));
     return map;
+  }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): Reader__getMarketTokenPriceResultValue1Struct {
+    return this.value1;
   }
 }
 
@@ -1477,15 +1635,21 @@ export class Reader__getOpenInterestWithPnlInputIndexTokenPriceStruct extends et
 
 export class Reader__getOrderResultValue0Struct extends ethereum.Tuple {
   get addresses(): Reader__getOrderResultValue0AddressesStruct {
-    return this[0].toTuple() as Reader__getOrderResultValue0AddressesStruct;
+    return changetype<Reader__getOrderResultValue0AddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getOrderResultValue0NumbersStruct {
-    return this[1].toTuple() as Reader__getOrderResultValue0NumbersStruct;
+    return changetype<Reader__getOrderResultValue0NumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getOrderResultValue0FlagsStruct {
-    return this[2].toTuple() as Reader__getOrderResultValue0FlagsStruct;
+    return changetype<Reader__getOrderResultValue0FlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -1605,15 +1769,21 @@ export class Reader__getPnlInputIndexTokenPriceStruct extends ethereum.Tuple {
 
 export class Reader__getPnlToPoolFactorInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getPnlToPoolFactorInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getPnlToPoolFactorInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getPnlToPoolFactorInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getPnlToPoolFactorInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getPnlToPoolFactorInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getPnlToPoolFactorInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getPnlToPoolFactorInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getPnlToPoolFactorInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getPnlToPoolFactorInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -1649,15 +1819,21 @@ export class Reader__getPnlToPoolFactorInputPricesShortTokenPriceStruct extends 
 
 export class Reader__getPositionResultValue0Struct extends ethereum.Tuple {
   get addresses(): Reader__getPositionResultValue0AddressesStruct {
-    return this[0].toTuple() as Reader__getPositionResultValue0AddressesStruct;
+    return changetype<Reader__getPositionResultValue0AddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getPositionResultValue0NumbersStruct {
-    return this[1].toTuple() as Reader__getPositionResultValue0NumbersStruct;
+    return changetype<Reader__getPositionResultValue0NumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getPositionResultValue0FlagsStruct {
-    return this[2].toTuple() as Reader__getPositionResultValue0FlagsStruct;
+    return changetype<Reader__getPositionResultValue0FlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -1721,15 +1897,21 @@ export class Reader__getPositionResultValue0FlagsStruct extends ethereum.Tuple {
 
 export class Reader__getPositionInfoResultValue0Struct extends ethereum.Tuple {
   get position(): Reader__getPositionInfoResultValue0PositionStruct {
-    return this[0].toTuple() as Reader__getPositionInfoResultValue0PositionStruct;
+    return changetype<Reader__getPositionInfoResultValue0PositionStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get fees(): Reader__getPositionInfoResultValue0FeesStruct {
-    return this[1].toTuple() as Reader__getPositionInfoResultValue0FeesStruct;
+    return changetype<Reader__getPositionInfoResultValue0FeesStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get executionPriceResult(): Reader__getPositionInfoResultValue0ExecutionPriceResultStruct {
-    return this[2].toTuple() as Reader__getPositionInfoResultValue0ExecutionPriceResultStruct;
+    return changetype<Reader__getPositionInfoResultValue0ExecutionPriceResultStruct>(
+      this[2].toTuple(),
+    );
   }
 
   get basePnlUsd(): BigInt {
@@ -1747,15 +1929,21 @@ export class Reader__getPositionInfoResultValue0Struct extends ethereum.Tuple {
 
 export class Reader__getPositionInfoResultValue0PositionStruct extends ethereum.Tuple {
   get addresses(): Reader__getPositionInfoResultValue0PositionAddressesStruct {
-    return this[0].toTuple() as Reader__getPositionInfoResultValue0PositionAddressesStruct;
+    return changetype<Reader__getPositionInfoResultValue0PositionAddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getPositionInfoResultValue0PositionNumbersStruct {
-    return this[1].toTuple() as Reader__getPositionInfoResultValue0PositionNumbersStruct;
+    return changetype<Reader__getPositionInfoResultValue0PositionNumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getPositionInfoResultValue0PositionFlagsStruct {
-    return this[2].toTuple() as Reader__getPositionInfoResultValue0PositionFlagsStruct;
+    return changetype<Reader__getPositionInfoResultValue0PositionFlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -1819,23 +2007,33 @@ export class Reader__getPositionInfoResultValue0PositionFlagsStruct extends ethe
 
 export class Reader__getPositionInfoResultValue0FeesStruct extends ethereum.Tuple {
   get referral(): Reader__getPositionInfoResultValue0FeesReferralStruct {
-    return this[0].toTuple() as Reader__getPositionInfoResultValue0FeesReferralStruct;
+    return changetype<Reader__getPositionInfoResultValue0FeesReferralStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get funding(): Reader__getPositionInfoResultValue0FeesFundingStruct {
-    return this[1].toTuple() as Reader__getPositionInfoResultValue0FeesFundingStruct;
+    return changetype<Reader__getPositionInfoResultValue0FeesFundingStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get borrowing(): Reader__getPositionInfoResultValue0FeesBorrowingStruct {
-    return this[2].toTuple() as Reader__getPositionInfoResultValue0FeesBorrowingStruct;
+    return changetype<Reader__getPositionInfoResultValue0FeesBorrowingStruct>(
+      this[2].toTuple(),
+    );
   }
 
   get ui(): Reader__getPositionInfoResultValue0FeesUiStruct {
-    return this[3].toTuple() as Reader__getPositionInfoResultValue0FeesUiStruct;
+    return changetype<Reader__getPositionInfoResultValue0FeesUiStruct>(
+      this[3].toTuple(),
+    );
   }
 
   get collateralTokenPrice(): Reader__getPositionInfoResultValue0FeesCollateralTokenPriceStruct {
-    return this[4].toTuple() as Reader__getPositionInfoResultValue0FeesCollateralTokenPriceStruct;
+    return changetype<Reader__getPositionInfoResultValue0FeesCollateralTokenPriceStruct>(
+      this[4].toTuple(),
+    );
   }
 
   get positionFeeFactor(): BigInt {
@@ -1993,15 +2191,21 @@ export class Reader__getPositionInfoResultValue0ExecutionPriceResultStruct exten
 
 export class Reader__getPositionInfoInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getPositionInfoInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getPositionInfoInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getPositionInfoInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getPositionInfoInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getPositionInfoInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getPositionInfoInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getPositionInfoInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getPositionInfoInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getPositionInfoInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -2053,6 +2257,18 @@ export class Reader__getPositionPnlUsdResult {
     map.set("value2", ethereum.Value.fromUnsignedBigInt(this.value2));
     return map;
   }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
+  }
+
+  getValue2(): BigInt {
+    return this.value2;
+  }
 }
 
 export class Reader__getPositionPnlUsdInputMarketStruct extends ethereum.Tuple {
@@ -2075,15 +2291,21 @@ export class Reader__getPositionPnlUsdInputMarketStruct extends ethereum.Tuple {
 
 export class Reader__getPositionPnlUsdInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getPositionPnlUsdInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getPositionPnlUsdInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getPositionPnlUsdInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getPositionPnlUsdInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getPositionPnlUsdInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getPositionPnlUsdInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getPositionPnlUsdInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getPositionPnlUsdInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getPositionPnlUsdInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -2151,7 +2373,7 @@ export class Reader__getSwapAmountOutResult {
   constructor(
     value0: BigInt,
     value1: BigInt,
-    value2: Reader__getSwapAmountOutResultFeesStruct
+    value2: Reader__getSwapAmountOutResultFeesStruct,
   ) {
     this.value0 = value0;
     this.value1 = value1;
@@ -2164,6 +2386,18 @@ export class Reader__getSwapAmountOutResult {
     map.set("value1", ethereum.Value.fromSignedBigInt(this.value1));
     map.set("value2", ethereum.Value.fromTuple(this.value2));
     return map;
+  }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
+  }
+
+  getFees(): Reader__getSwapAmountOutResultFeesStruct {
+    return this.value2;
   }
 }
 
@@ -2187,15 +2421,21 @@ export class Reader__getSwapAmountOutInputMarketStruct extends ethereum.Tuple {
 
 export class Reader__getSwapAmountOutInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getSwapAmountOutInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getSwapAmountOutInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getSwapAmountOutInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getSwapAmountOutInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getSwapAmountOutInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getSwapAmountOutInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getSwapAmountOutInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getSwapAmountOutInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getSwapAmountOutInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -2244,6 +2484,14 @@ export class Reader__getSwapPriceImpactResult {
     map.set("value1", ethereum.Value.fromSignedBigInt(this.value1));
     return map;
   }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
+  }
 }
 
 export class Reader__getSwapPriceImpactInputTokenInPriceStruct extends ethereum.Tuple {
@@ -2268,15 +2516,21 @@ export class Reader__getSwapPriceImpactInputTokenOutPriceStruct extends ethereum
 
 export class Reader__getWithdrawalResultValue0Struct extends ethereum.Tuple {
   get addresses(): Reader__getWithdrawalResultValue0AddressesStruct {
-    return this[0].toTuple() as Reader__getWithdrawalResultValue0AddressesStruct;
+    return changetype<Reader__getWithdrawalResultValue0AddressesStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get numbers(): Reader__getWithdrawalResultValue0NumbersStruct {
-    return this[1].toTuple() as Reader__getWithdrawalResultValue0NumbersStruct;
+    return changetype<Reader__getWithdrawalResultValue0NumbersStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get flags(): Reader__getWithdrawalResultValue0FlagsStruct {
-    return this[2].toTuple() as Reader__getWithdrawalResultValue0FlagsStruct;
+    return changetype<Reader__getWithdrawalResultValue0FlagsStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -2357,6 +2611,14 @@ export class Reader__getWithdrawalAmountOutResult {
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     return map;
   }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
+  }
 }
 
 export class Reader__getWithdrawalAmountOutInputMarketStruct extends ethereum.Tuple {
@@ -2379,15 +2641,21 @@ export class Reader__getWithdrawalAmountOutInputMarketStruct extends ethereum.Tu
 
 export class Reader__getWithdrawalAmountOutInputPricesStruct extends ethereum.Tuple {
   get indexTokenPrice(): Reader__getWithdrawalAmountOutInputPricesIndexTokenPriceStruct {
-    return this[0].toTuple() as Reader__getWithdrawalAmountOutInputPricesIndexTokenPriceStruct;
+    return changetype<Reader__getWithdrawalAmountOutInputPricesIndexTokenPriceStruct>(
+      this[0].toTuple(),
+    );
   }
 
   get longTokenPrice(): Reader__getWithdrawalAmountOutInputPricesLongTokenPriceStruct {
-    return this[1].toTuple() as Reader__getWithdrawalAmountOutInputPricesLongTokenPriceStruct;
+    return changetype<Reader__getWithdrawalAmountOutInputPricesLongTokenPriceStruct>(
+      this[1].toTuple(),
+    );
   }
 
   get shortTokenPrice(): Reader__getWithdrawalAmountOutInputPricesShortTokenPriceStruct {
-    return this[2].toTuple() as Reader__getWithdrawalAmountOutInputPricesShortTokenPriceStruct;
+    return changetype<Reader__getWithdrawalAmountOutInputPricesShortTokenPriceStruct>(
+      this[2].toTuple(),
+    );
   }
 }
 
@@ -2430,7 +2698,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     account: Address,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): Array<Reader__getAccountOrdersResultValue0Struct> {
     let result = super.call(
       "getAccountOrders",
@@ -2439,8 +2707,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromAddress(account),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
 
     return result[0].toTupleArray<Reader__getAccountOrdersResultValue0Struct>();
@@ -2450,7 +2718,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     account: Address,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): ethereum.CallResult<Array<Reader__getAccountOrdersResultValue0Struct>> {
     let result = super.tryCall(
       "getAccountOrders",
@@ -2459,15 +2727,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromAddress(account),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTupleArray<Reader__getAccountOrdersResultValue0Struct>()
+      value[0].toTupleArray<Reader__getAccountOrdersResultValue0Struct>(),
     );
   }
 
@@ -2476,7 +2744,7 @@ export class Reader extends ethereum.SmartContract {
     referralStorage: Address,
     positionKeys: Array<Bytes>,
     prices: Array<Reader__getAccountPositionInfoListInputPricesStruct>,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): Array<Reader__getAccountPositionInfoListResultValue0Struct> {
     let result = super.call(
       "getAccountPositionInfoList",
@@ -2486,13 +2754,11 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(referralStorage),
         ethereum.Value.fromFixedBytesArray(positionKeys),
         ethereum.Value.fromTupleArray(prices),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
 
-    return result[0].toTupleArray<
-      Reader__getAccountPositionInfoListResultValue0Struct
-    >();
+    return result[0].toTupleArray<Reader__getAccountPositionInfoListResultValue0Struct>();
   }
 
   try_getAccountPositionInfoList(
@@ -2500,7 +2766,7 @@ export class Reader extends ethereum.SmartContract {
     referralStorage: Address,
     positionKeys: Array<Bytes>,
     prices: Array<Reader__getAccountPositionInfoListInputPricesStruct>,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): ethereum.CallResult<
     Array<Reader__getAccountPositionInfoListResultValue0Struct>
   > {
@@ -2512,17 +2778,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(referralStorage),
         ethereum.Value.fromFixedBytesArray(positionKeys),
         ethereum.Value.fromTupleArray(prices),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTupleArray<
-        Reader__getAccountPositionInfoListResultValue0Struct
-      >()
+      value[0].toTupleArray<Reader__getAccountPositionInfoListResultValue0Struct>(),
     );
   }
 
@@ -2530,7 +2794,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     account: Address,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): Array<Reader__getAccountPositionsResultValue0Struct> {
     let result = super.call(
       "getAccountPositions",
@@ -2539,20 +2803,18 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromAddress(account),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
 
-    return result[0].toTupleArray<
-      Reader__getAccountPositionsResultValue0Struct
-    >();
+    return result[0].toTupleArray<Reader__getAccountPositionsResultValue0Struct>();
   }
 
   try_getAccountPositions(
     dataStore: Address,
     account: Address,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): ethereum.CallResult<Array<Reader__getAccountPositionsResultValue0Struct>> {
     let result = super.tryCall(
       "getAccountPositions",
@@ -2561,15 +2823,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromAddress(account),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTupleArray<Reader__getAccountPositionsResultValue0Struct>()
+      value[0].toTupleArray<Reader__getAccountPositionsResultValue0Struct>(),
     );
   }
 
@@ -2577,7 +2839,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     market: Address,
     isLong: boolean,
-    prices: Reader__getAdlStateInputPricesStruct
+    prices: Reader__getAdlStateInputPricesStruct,
   ): Reader__getAdlStateResult {
     let result = super.call(
       "getAdlState",
@@ -2586,15 +2848,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromAddress(market),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromTuple(prices)
-      ]
+        ethereum.Value.fromTuple(prices),
+      ],
     );
 
     return new Reader__getAdlStateResult(
       result[0].toBigInt(),
       result[1].toBoolean(),
       result[2].toBigInt(),
-      result[3].toBigInt()
+      result[3].toBigInt(),
     );
   }
 
@@ -2602,7 +2864,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     market: Address,
     isLong: boolean,
-    prices: Reader__getAdlStateInputPricesStruct
+    prices: Reader__getAdlStateInputPricesStruct,
   ): ethereum.CallResult<Reader__getAdlStateResult> {
     let result = super.tryCall(
       "getAdlState",
@@ -2611,8 +2873,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromAddress(market),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromTuple(prices)
-      ]
+        ethereum.Value.fromTuple(prices),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -2623,45 +2885,47 @@ export class Reader extends ethereum.SmartContract {
         value[0].toBigInt(),
         value[1].toBoolean(),
         value[2].toBigInt(),
-        value[3].toBigInt()
-      )
+        value[3].toBigInt(),
+      ),
     );
   }
 
   getDeposit(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): Reader__getDepositResultValue0Struct {
     let result = super.call(
       "getDeposit",
       "getDeposit(address,bytes32):(((address,address,address,address,address,address,address,address[],address[]),(uint256,uint256,uint256,uint256,uint256,uint256),(bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getDepositResultValue0Struct;
+    return changetype<Reader__getDepositResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getDeposit(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): ethereum.CallResult<Reader__getDepositResultValue0Struct> {
     let result = super.tryCall(
       "getDeposit",
       "getDeposit(address,bytes32):(((address,address,address,address,address,address,address,address[],address[]),(uint256,uint256,uint256,uint256,uint256,uint256),(bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getDepositResultValue0Struct
+      changetype<Reader__getDepositResultValue0Struct>(value[0].toTuple()),
     );
   }
 
@@ -2671,7 +2935,7 @@ export class Reader extends ethereum.SmartContract {
     prices: Reader__getDepositAmountOutInputPricesStruct,
     longTokenAmount: BigInt,
     shortTokenAmount: BigInt,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): BigInt {
     let result = super.call(
       "getDepositAmountOut",
@@ -2682,8 +2946,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromUnsignedBigInt(longTokenAmount),
         ethereum.Value.fromUnsignedBigInt(shortTokenAmount),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
 
     return result[0].toBigInt();
@@ -2695,7 +2959,7 @@ export class Reader extends ethereum.SmartContract {
     prices: Reader__getDepositAmountOutInputPricesStruct,
     longTokenAmount: BigInt,
     shortTokenAmount: BigInt,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
       "getDepositAmountOut",
@@ -2706,8 +2970,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromUnsignedBigInt(longTokenAmount),
         ethereum.Value.fromUnsignedBigInt(shortTokenAmount),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -2723,7 +2987,7 @@ export class Reader extends ethereum.SmartContract {
     positionSizeInUsd: BigInt,
     positionSizeInTokens: BigInt,
     sizeDeltaUsd: BigInt,
-    isLong: boolean
+    isLong: boolean,
   ): Reader__getExecutionPriceResultValue0Struct {
     let result = super.call(
       "getExecutionPrice",
@@ -2735,11 +2999,13 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromUnsignedBigInt(positionSizeInUsd),
         ethereum.Value.fromUnsignedBigInt(positionSizeInTokens),
         ethereum.Value.fromSignedBigInt(sizeDeltaUsd),
-        ethereum.Value.fromBoolean(isLong)
-      ]
+        ethereum.Value.fromBoolean(isLong),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getExecutionPriceResultValue0Struct;
+    return changetype<Reader__getExecutionPriceResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getExecutionPrice(
@@ -2749,7 +3015,7 @@ export class Reader extends ethereum.SmartContract {
     positionSizeInUsd: BigInt,
     positionSizeInTokens: BigInt,
     sizeDeltaUsd: BigInt,
-    isLong: boolean
+    isLong: boolean,
   ): ethereum.CallResult<Reader__getExecutionPriceResultValue0Struct> {
     let result = super.tryCall(
       "getExecutionPrice",
@@ -2761,90 +3027,94 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromUnsignedBigInt(positionSizeInUsd),
         ethereum.Value.fromUnsignedBigInt(positionSizeInTokens),
         ethereum.Value.fromSignedBigInt(sizeDeltaUsd),
-        ethereum.Value.fromBoolean(isLong)
-      ]
+        ethereum.Value.fromBoolean(isLong),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getExecutionPriceResultValue0Struct
+      changetype<Reader__getExecutionPriceResultValue0Struct>(
+        value[0].toTuple(),
+      ),
     );
   }
 
   getMarket(
     dataStore: Address,
-    key: Address
+    key: Address,
   ): Reader__getMarketResultValue0Struct {
     let result = super.call(
       "getMarket",
       "getMarket(address,address):((address,address,address,address))",
-      [ethereum.Value.fromAddress(dataStore), ethereum.Value.fromAddress(key)]
+      [ethereum.Value.fromAddress(dataStore), ethereum.Value.fromAddress(key)],
     );
 
-    return result[0].toTuple() as Reader__getMarketResultValue0Struct;
+    return changetype<Reader__getMarketResultValue0Struct>(result[0].toTuple());
   }
 
   try_getMarket(
     dataStore: Address,
-    key: Address
+    key: Address,
   ): ethereum.CallResult<Reader__getMarketResultValue0Struct> {
     let result = super.tryCall(
       "getMarket",
       "getMarket(address,address):((address,address,address,address))",
-      [ethereum.Value.fromAddress(dataStore), ethereum.Value.fromAddress(key)]
+      [ethereum.Value.fromAddress(dataStore), ethereum.Value.fromAddress(key)],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getMarketResultValue0Struct
+      changetype<Reader__getMarketResultValue0Struct>(value[0].toTuple()),
     );
   }
 
   getMarketBySalt(
     dataStore: Address,
-    salt: Bytes
+    salt: Bytes,
   ): Reader__getMarketBySaltResultValue0Struct {
     let result = super.call(
       "getMarketBySalt",
       "getMarketBySalt(address,bytes32):((address,address,address,address))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(salt)
-      ]
+        ethereum.Value.fromFixedBytes(salt),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getMarketBySaltResultValue0Struct;
+    return changetype<Reader__getMarketBySaltResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getMarketBySalt(
     dataStore: Address,
-    salt: Bytes
+    salt: Bytes,
   ): ethereum.CallResult<Reader__getMarketBySaltResultValue0Struct> {
     let result = super.tryCall(
       "getMarketBySalt",
       "getMarketBySalt(address,bytes32):((address,address,address,address))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(salt)
-      ]
+        ethereum.Value.fromFixedBytes(salt),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getMarketBySaltResultValue0Struct
+      changetype<Reader__getMarketBySaltResultValue0Struct>(value[0].toTuple()),
     );
   }
 
   getMarketInfo(
     dataStore: Address,
     prices: Reader__getMarketInfoInputPricesStruct,
-    marketKey: Address
+    marketKey: Address,
   ): Reader__getMarketInfoResultValue0Struct {
     let result = super.call(
       "getMarketInfo",
@@ -2852,17 +3122,19 @@ export class Reader extends ethereum.SmartContract {
       [
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromTuple(prices),
-        ethereum.Value.fromAddress(marketKey)
-      ]
+        ethereum.Value.fromAddress(marketKey),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getMarketInfoResultValue0Struct;
+    return changetype<Reader__getMarketInfoResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getMarketInfo(
     dataStore: Address,
     prices: Reader__getMarketInfoInputPricesStruct,
-    marketKey: Address
+    marketKey: Address,
   ): ethereum.CallResult<Reader__getMarketInfoResultValue0Struct> {
     let result = super.tryCall(
       "getMarketInfo",
@@ -2870,25 +3142,23 @@ export class Reader extends ethereum.SmartContract {
       [
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromTuple(prices),
-        ethereum.Value.fromAddress(marketKey)
-      ]
+        ethereum.Value.fromAddress(marketKey),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getMarketInfoResultValue0Struct
+      changetype<Reader__getMarketInfoResultValue0Struct>(value[0].toTuple()),
     );
   }
 
   getMarketInfoList(
     dataStore: Address,
-    marketPricesList: Array<
-      Reader__getMarketInfoListInputMarketPricesListStruct
-    >,
+    marketPricesList: Array<Reader__getMarketInfoListInputMarketPricesListStruct>,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): Array<Reader__getMarketInfoListResultValue0Struct> {
     let result = super.call(
       "getMarketInfoList",
@@ -2897,22 +3167,18 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromTupleArray(marketPricesList),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
 
-    return result[0].toTupleArray<
-      Reader__getMarketInfoListResultValue0Struct
-    >();
+    return result[0].toTupleArray<Reader__getMarketInfoListResultValue0Struct>();
   }
 
   try_getMarketInfoList(
     dataStore: Address,
-    marketPricesList: Array<
-      Reader__getMarketInfoListInputMarketPricesListStruct
-    >,
+    marketPricesList: Array<Reader__getMarketInfoListInputMarketPricesListStruct>,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): ethereum.CallResult<Array<Reader__getMarketInfoListResultValue0Struct>> {
     let result = super.tryCall(
       "getMarketInfoList",
@@ -2921,15 +3187,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromTupleArray(marketPricesList),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTupleArray<Reader__getMarketInfoListResultValue0Struct>()
+      value[0].toTupleArray<Reader__getMarketInfoListResultValue0Struct>(),
     );
   }
 
@@ -2940,7 +3206,7 @@ export class Reader extends ethereum.SmartContract {
     longTokenPrice: Reader__getMarketTokenPriceInputLongTokenPriceStruct,
     shortTokenPrice: Reader__getMarketTokenPriceInputShortTokenPriceStruct,
     pnlFactorType: Bytes,
-    maximize: boolean
+    maximize: boolean,
   ): Reader__getMarketTokenPriceResult {
     let result = super.call(
       "getMarketTokenPrice",
@@ -2952,13 +3218,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(longTokenPrice),
         ethereum.Value.fromTuple(shortTokenPrice),
         ethereum.Value.fromFixedBytes(pnlFactorType),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
 
     return new Reader__getMarketTokenPriceResult(
       result[0].toBigInt(),
-      result[1].toTuple() as Reader__getMarketTokenPriceResultValue1Struct
+      changetype<Reader__getMarketTokenPriceResultValue1Struct>(
+        result[1].toTuple(),
+      ),
     );
   }
 
@@ -2969,7 +3237,7 @@ export class Reader extends ethereum.SmartContract {
     longTokenPrice: Reader__getMarketTokenPriceInputLongTokenPriceStruct,
     shortTokenPrice: Reader__getMarketTokenPriceInputShortTokenPriceStruct,
     pnlFactorType: Bytes,
-    maximize: boolean
+    maximize: boolean,
   ): ethereum.CallResult<Reader__getMarketTokenPriceResult> {
     let result = super.tryCall(
       "getMarketTokenPrice",
@@ -2981,8 +3249,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(longTokenPrice),
         ethereum.Value.fromTuple(shortTokenPrice),
         ethereum.Value.fromFixedBytes(pnlFactorType),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -2991,15 +3259,17 @@ export class Reader extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(
       new Reader__getMarketTokenPriceResult(
         value[0].toBigInt(),
-        value[1].toTuple() as Reader__getMarketTokenPriceResultValue1Struct
-      )
+        changetype<Reader__getMarketTokenPriceResultValue1Struct>(
+          value[1].toTuple(),
+        ),
+      ),
     );
   }
 
   getMarkets(
     dataStore: Address,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): Array<Reader__getMarketsResultValue0Struct> {
     let result = super.call(
       "getMarkets",
@@ -3007,8 +3277,8 @@ export class Reader extends ethereum.SmartContract {
       [
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
 
     return result[0].toTupleArray<Reader__getMarketsResultValue0Struct>();
@@ -3017,7 +3287,7 @@ export class Reader extends ethereum.SmartContract {
   try_getMarkets(
     dataStore: Address,
     start: BigInt,
-    end: BigInt
+    end: BigInt,
   ): ethereum.CallResult<Array<Reader__getMarketsResultValue0Struct>> {
     let result = super.tryCall(
       "getMarkets",
@@ -3025,15 +3295,15 @@ export class Reader extends ethereum.SmartContract {
       [
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromUnsignedBigInt(start),
-        ethereum.Value.fromUnsignedBigInt(end)
-      ]
+        ethereum.Value.fromUnsignedBigInt(end),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTupleArray<Reader__getMarketsResultValue0Struct>()
+      value[0].toTupleArray<Reader__getMarketsResultValue0Struct>(),
     );
   }
 
@@ -3041,7 +3311,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     market: Reader__getNetPnlInputMarketStruct,
     indexTokenPrice: Reader__getNetPnlInputIndexTokenPriceStruct,
-    maximize: boolean
+    maximize: boolean,
   ): BigInt {
     let result = super.call(
       "getNetPnl",
@@ -3050,8 +3320,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(indexTokenPrice),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
 
     return result[0].toBigInt();
@@ -3061,7 +3331,7 @@ export class Reader extends ethereum.SmartContract {
     dataStore: Address,
     market: Reader__getNetPnlInputMarketStruct,
     indexTokenPrice: Reader__getNetPnlInputIndexTokenPriceStruct,
-    maximize: boolean
+    maximize: boolean,
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
       "getNetPnl",
@@ -3070,8 +3340,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(dataStore),
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(indexTokenPrice),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3085,7 +3355,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getOpenInterestWithPnlInputMarketStruct,
     indexTokenPrice: Reader__getOpenInterestWithPnlInputIndexTokenPriceStruct,
     isLong: boolean,
-    maximize: boolean
+    maximize: boolean,
   ): BigInt {
     let result = super.call(
       "getOpenInterestWithPnl",
@@ -3095,8 +3365,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(indexTokenPrice),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
 
     return result[0].toBigInt();
@@ -3107,7 +3377,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getOpenInterestWithPnlInputMarketStruct,
     indexTokenPrice: Reader__getOpenInterestWithPnlInputIndexTokenPriceStruct,
     isLong: boolean,
-    maximize: boolean
+    maximize: boolean,
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
       "getOpenInterestWithPnl",
@@ -3117,8 +3387,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(indexTokenPrice),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3133,31 +3403,31 @@ export class Reader extends ethereum.SmartContract {
       "getOrder(address,bytes32):(((address,address,address,address,address,address,address[]),(uint8,uint8,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256),(bool,bool,bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getOrderResultValue0Struct;
+    return changetype<Reader__getOrderResultValue0Struct>(result[0].toTuple());
   }
 
   try_getOrder(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): ethereum.CallResult<Reader__getOrderResultValue0Struct> {
     let result = super.tryCall(
       "getOrder",
       "getOrder(address,bytes32):(((address,address,address,address,address,address,address[]),(uint8,uint8,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256),(bool,bool,bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getOrderResultValue0Struct
+      changetype<Reader__getOrderResultValue0Struct>(value[0].toTuple()),
     );
   }
 
@@ -3166,7 +3436,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getPnlInputMarketStruct,
     indexTokenPrice: Reader__getPnlInputIndexTokenPriceStruct,
     isLong: boolean,
-    maximize: boolean
+    maximize: boolean,
   ): BigInt {
     let result = super.call(
       "getPnl",
@@ -3176,8 +3446,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(indexTokenPrice),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
 
     return result[0].toBigInt();
@@ -3188,7 +3458,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getPnlInputMarketStruct,
     indexTokenPrice: Reader__getPnlInputIndexTokenPriceStruct,
     isLong: boolean,
-    maximize: boolean
+    maximize: boolean,
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
       "getPnl",
@@ -3198,8 +3468,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(indexTokenPrice),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3213,7 +3483,7 @@ export class Reader extends ethereum.SmartContract {
     marketAddress: Address,
     prices: Reader__getPnlToPoolFactorInputPricesStruct,
     isLong: boolean,
-    maximize: boolean
+    maximize: boolean,
   ): BigInt {
     let result = super.call(
       "getPnlToPoolFactor",
@@ -3223,8 +3493,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(marketAddress),
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
 
     return result[0].toBigInt();
@@ -3235,7 +3505,7 @@ export class Reader extends ethereum.SmartContract {
     marketAddress: Address,
     prices: Reader__getPnlToPoolFactorInputPricesStruct,
     isLong: boolean,
-    maximize: boolean
+    maximize: boolean,
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
       "getPnlToPoolFactor",
@@ -3245,8 +3515,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(marketAddress),
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromBoolean(isLong),
-        ethereum.Value.fromBoolean(maximize)
-      ]
+        ethereum.Value.fromBoolean(maximize),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3257,38 +3527,40 @@ export class Reader extends ethereum.SmartContract {
 
   getPosition(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): Reader__getPositionResultValue0Struct {
     let result = super.call(
       "getPosition",
       "getPosition(address,bytes32):(((address,address,address),(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256),(bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getPositionResultValue0Struct;
+    return changetype<Reader__getPositionResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getPosition(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): ethereum.CallResult<Reader__getPositionResultValue0Struct> {
     let result = super.tryCall(
       "getPosition",
       "getPosition(address,bytes32):(((address,address,address),(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256),(bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getPositionResultValue0Struct
+      changetype<Reader__getPositionResultValue0Struct>(value[0].toTuple()),
     );
   }
 
@@ -3299,7 +3571,7 @@ export class Reader extends ethereum.SmartContract {
     prices: Reader__getPositionInfoInputPricesStruct,
     sizeDeltaUsd: BigInt,
     uiFeeReceiver: Address,
-    usePositionSizeAsSizeDeltaUsd: boolean
+    usePositionSizeAsSizeDeltaUsd: boolean,
   ): Reader__getPositionInfoResultValue0Struct {
     let result = super.call(
       "getPositionInfo",
@@ -3311,11 +3583,13 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromUnsignedBigInt(sizeDeltaUsd),
         ethereum.Value.fromAddress(uiFeeReceiver),
-        ethereum.Value.fromBoolean(usePositionSizeAsSizeDeltaUsd)
-      ]
+        ethereum.Value.fromBoolean(usePositionSizeAsSizeDeltaUsd),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getPositionInfoResultValue0Struct;
+    return changetype<Reader__getPositionInfoResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getPositionInfo(
@@ -3325,7 +3599,7 @@ export class Reader extends ethereum.SmartContract {
     prices: Reader__getPositionInfoInputPricesStruct,
     sizeDeltaUsd: BigInt,
     uiFeeReceiver: Address,
-    usePositionSizeAsSizeDeltaUsd: boolean
+    usePositionSizeAsSizeDeltaUsd: boolean,
   ): ethereum.CallResult<Reader__getPositionInfoResultValue0Struct> {
     let result = super.tryCall(
       "getPositionInfo",
@@ -3337,15 +3611,15 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromUnsignedBigInt(sizeDeltaUsd),
         ethereum.Value.fromAddress(uiFeeReceiver),
-        ethereum.Value.fromBoolean(usePositionSizeAsSizeDeltaUsd)
-      ]
+        ethereum.Value.fromBoolean(usePositionSizeAsSizeDeltaUsd),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getPositionInfoResultValue0Struct
+      changetype<Reader__getPositionInfoResultValue0Struct>(value[0].toTuple()),
     );
   }
 
@@ -3354,7 +3628,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getPositionPnlUsdInputMarketStruct,
     prices: Reader__getPositionPnlUsdInputPricesStruct,
     positionKey: Bytes,
-    sizeDeltaUsd: BigInt
+    sizeDeltaUsd: BigInt,
   ): Reader__getPositionPnlUsdResult {
     let result = super.call(
       "getPositionPnlUsd",
@@ -3364,14 +3638,14 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromFixedBytes(positionKey),
-        ethereum.Value.fromUnsignedBigInt(sizeDeltaUsd)
-      ]
+        ethereum.Value.fromUnsignedBigInt(sizeDeltaUsd),
+      ],
     );
 
     return new Reader__getPositionPnlUsdResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
-      result[2].toBigInt()
+      result[2].toBigInt(),
     );
   }
 
@@ -3380,7 +3654,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getPositionPnlUsdInputMarketStruct,
     prices: Reader__getPositionPnlUsdInputPricesStruct,
     positionKey: Bytes,
-    sizeDeltaUsd: BigInt
+    sizeDeltaUsd: BigInt,
   ): ethereum.CallResult<Reader__getPositionPnlUsdResult> {
     let result = super.tryCall(
       "getPositionPnlUsd",
@@ -3390,8 +3664,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromFixedBytes(positionKey),
-        ethereum.Value.fromUnsignedBigInt(sizeDeltaUsd)
-      ]
+        ethereum.Value.fromUnsignedBigInt(sizeDeltaUsd),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3401,8 +3675,8 @@ export class Reader extends ethereum.SmartContract {
       new Reader__getPositionPnlUsdResult(
         value[0].toBigInt(),
         value[1].toBigInt(),
-        value[2].toBigInt()
-      )
+        value[2].toBigInt(),
+      ),
     );
   }
 
@@ -3412,7 +3686,7 @@ export class Reader extends ethereum.SmartContract {
     prices: Reader__getSwapAmountOutInputPricesStruct,
     tokenIn: Address,
     amountIn: BigInt,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): Reader__getSwapAmountOutResult {
     let result = super.call(
       "getSwapAmountOut",
@@ -3423,14 +3697,14 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromAddress(tokenIn),
         ethereum.Value.fromUnsignedBigInt(amountIn),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
 
     return new Reader__getSwapAmountOutResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
-      result[2].toTuple() as Reader__getSwapAmountOutResultFeesStruct
+      changetype<Reader__getSwapAmountOutResultFeesStruct>(result[2].toTuple()),
     );
   }
 
@@ -3440,7 +3714,7 @@ export class Reader extends ethereum.SmartContract {
     prices: Reader__getSwapAmountOutInputPricesStruct,
     tokenIn: Address,
     amountIn: BigInt,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): ethereum.CallResult<Reader__getSwapAmountOutResult> {
     let result = super.tryCall(
       "getSwapAmountOut",
@@ -3451,8 +3725,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromAddress(tokenIn),
         ethereum.Value.fromUnsignedBigInt(amountIn),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3462,8 +3736,10 @@ export class Reader extends ethereum.SmartContract {
       new Reader__getSwapAmountOutResult(
         value[0].toBigInt(),
         value[1].toBigInt(),
-        value[2].toTuple() as Reader__getSwapAmountOutResultFeesStruct
-      )
+        changetype<Reader__getSwapAmountOutResultFeesStruct>(
+          value[2].toTuple(),
+        ),
+      ),
     );
   }
 
@@ -3474,7 +3750,7 @@ export class Reader extends ethereum.SmartContract {
     tokenOut: Address,
     amountIn: BigInt,
     tokenInPrice: Reader__getSwapPriceImpactInputTokenInPriceStruct,
-    tokenOutPrice: Reader__getSwapPriceImpactInputTokenOutPriceStruct
+    tokenOutPrice: Reader__getSwapPriceImpactInputTokenOutPriceStruct,
   ): Reader__getSwapPriceImpactResult {
     let result = super.call(
       "getSwapPriceImpact",
@@ -3486,13 +3762,13 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(tokenOut),
         ethereum.Value.fromUnsignedBigInt(amountIn),
         ethereum.Value.fromTuple(tokenInPrice),
-        ethereum.Value.fromTuple(tokenOutPrice)
-      ]
+        ethereum.Value.fromTuple(tokenOutPrice),
+      ],
     );
 
     return new Reader__getSwapPriceImpactResult(
       result[0].toBigInt(),
-      result[1].toBigInt()
+      result[1].toBigInt(),
     );
   }
 
@@ -3503,7 +3779,7 @@ export class Reader extends ethereum.SmartContract {
     tokenOut: Address,
     amountIn: BigInt,
     tokenInPrice: Reader__getSwapPriceImpactInputTokenInPriceStruct,
-    tokenOutPrice: Reader__getSwapPriceImpactInputTokenOutPriceStruct
+    tokenOutPrice: Reader__getSwapPriceImpactInputTokenOutPriceStruct,
   ): ethereum.CallResult<Reader__getSwapPriceImpactResult> {
     let result = super.tryCall(
       "getSwapPriceImpact",
@@ -3515,8 +3791,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromAddress(tokenOut),
         ethereum.Value.fromUnsignedBigInt(amountIn),
         ethereum.Value.fromTuple(tokenInPrice),
-        ethereum.Value.fromTuple(tokenOutPrice)
-      ]
+        ethereum.Value.fromTuple(tokenOutPrice),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3525,45 +3801,47 @@ export class Reader extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(
       new Reader__getSwapPriceImpactResult(
         value[0].toBigInt(),
-        value[1].toBigInt()
-      )
+        value[1].toBigInt(),
+      ),
     );
   }
 
   getWithdrawal(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): Reader__getWithdrawalResultValue0Struct {
     let result = super.call(
       "getWithdrawal",
       "getWithdrawal(address,bytes32):(((address,address,address,address,address,address[],address[]),(uint256,uint256,uint256,uint256,uint256,uint256),(bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
 
-    return result[0].toTuple() as Reader__getWithdrawalResultValue0Struct;
+    return changetype<Reader__getWithdrawalResultValue0Struct>(
+      result[0].toTuple(),
+    );
   }
 
   try_getWithdrawal(
     dataStore: Address,
-    key: Bytes
+    key: Bytes,
   ): ethereum.CallResult<Reader__getWithdrawalResultValue0Struct> {
     let result = super.tryCall(
       "getWithdrawal",
       "getWithdrawal(address,bytes32):(((address,address,address,address,address,address[],address[]),(uint256,uint256,uint256,uint256,uint256,uint256),(bool)))",
       [
         ethereum.Value.fromAddress(dataStore),
-        ethereum.Value.fromFixedBytes(key)
-      ]
+        ethereum.Value.fromFixedBytes(key),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as Reader__getWithdrawalResultValue0Struct
+      changetype<Reader__getWithdrawalResultValue0Struct>(value[0].toTuple()),
     );
   }
 
@@ -3572,7 +3850,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getWithdrawalAmountOutInputMarketStruct,
     prices: Reader__getWithdrawalAmountOutInputPricesStruct,
     marketTokenAmount: BigInt,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): Reader__getWithdrawalAmountOutResult {
     let result = super.call(
       "getWithdrawalAmountOut",
@@ -3582,13 +3860,13 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromUnsignedBigInt(marketTokenAmount),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
 
     return new Reader__getWithdrawalAmountOutResult(
       result[0].toBigInt(),
-      result[1].toBigInt()
+      result[1].toBigInt(),
     );
   }
 
@@ -3597,7 +3875,7 @@ export class Reader extends ethereum.SmartContract {
     market: Reader__getWithdrawalAmountOutInputMarketStruct,
     prices: Reader__getWithdrawalAmountOutInputPricesStruct,
     marketTokenAmount: BigInt,
-    uiFeeReceiver: Address
+    uiFeeReceiver: Address,
   ): ethereum.CallResult<Reader__getWithdrawalAmountOutResult> {
     let result = super.tryCall(
       "getWithdrawalAmountOut",
@@ -3607,8 +3885,8 @@ export class Reader extends ethereum.SmartContract {
         ethereum.Value.fromTuple(market),
         ethereum.Value.fromTuple(prices),
         ethereum.Value.fromUnsignedBigInt(marketTokenAmount),
-        ethereum.Value.fromAddress(uiFeeReceiver)
-      ]
+        ethereum.Value.fromAddress(uiFeeReceiver),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -3617,8 +3895,8 @@ export class Reader extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(
       new Reader__getWithdrawalAmountOutResult(
         value[0].toBigInt(),
-        value[1].toBigInt()
-      )
+        value[1].toBigInt(),
+      ),
     );
   }
 }
